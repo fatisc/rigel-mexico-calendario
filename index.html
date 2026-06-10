@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Viaje México — Operación Rigel + Farmacias Similares</title>
+<style>
+  :root {
+    --primary: #0A4DA6;
+    --primary-light: #1E6FDB;
+    --accent: #F59E0B;
+    --bg: #F8FAFC;
+    --card: #FFFFFF;
+    --text: #1E293B;
+    --text-light: #64748B;
+    --border: #E2E8F0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+  }
+  header {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+  header h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 0.5rem; }
+  header p { opacity: 0.9; font-size: 1rem; }
+  .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+  .week-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--primary);
+    margin: 2rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border);
+  }
+  .day {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border-left: 4px solid var(--primary);
+  }
+  .day-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+  .day-number {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+  }
+  .day-title { font-weight: 600; font-size: 1.05rem; }
+  .day-date { color: var(--text-light); font-size: 0.85rem; margin-left: auto; font-weight: 500; }
+  .tasks { list-style: none; }
+  .tasks li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .tasks li:last-child { border-bottom: none; }
+  .tasks li::before {
+    content: "◆";
+    color: var(--accent);
+    font-size: 0.6rem;
+    margin-top: 0.35rem;
+    flex-shrink: 0;
+  }
+  .task-done { text-decoration: line-through; opacity: 0.5; }
+  .task-time { color: var(--primary-light); font-weight: 600; font-size: 0.8rem; min-width: 3.5rem; }
+  .task-desc { flex: 1; }
+  .highlight { background: #FEF3C7; padding: 0.15rem 0.4rem; border-radius: 4px; font-weight: 500; }
+  .footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-light);
+    font-size: 0.8rem;
+  }
+  @media (max-width: 600px) {
+    .day-header { flex-wrap: wrap; }
+    .day-date { margin-left: 0; width: 100%; padding-left: 3.25rem; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>🇲🇽 Viaje a México — Operación Rigel</h1>
+  <p>Desarrollo de operación con Farmacias Similares</p>
+</header>
+
+<div class="container">
+  <div class="week-label">Semana 1 — Llegada &amp; Alineación</div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-number">D1</div>
+      <div class="day-title">Llegada a Ciudad de México</div>
+      <div class="day-date">Lunes — 16 Jun 2026</div>
+    </div>
+    <ul class="tasks">
+      <li><span class="task-time">AM</span><span class="task-desc">Llegada al aeropuerto y traslado al hotel</span></li>
+      <li><span class="task-time">PM</span><span class="task-desc">Check-in y descanso / aclimatación</span></li>
+      <li><span class="task-time">Noche</span><span class="task-desc">Cena de bienvenida + revisión de agenda</span></li>
+    </ul>
+  </div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-number">D2</div>
+      <div class="day-title">Reunión Farmacias Similares — Dirección Corporativa</div>
+      <div class="day-date">Martes — 17 Jun 2026</div>
+    </div>
+    <ul class="tasks">
+      <li><span class="task-time">09:00</span><span class="task-desc">Reunión de apertura con <span class="highlight">Director de Innovación</span></span></li>
+      <li><span class="task-time">11:00</span><span class="task-desc">Presentación de propuesta Rigel</span></li>
+      <li><span class="task-time">14:00</span><span class="task-desc">Almuerzo con equipo comercial</span></li>
+      <li><span class="task-time">16:00</span><span class="task-desc">Taller de requisitos técnicos</span></li>
+    </ul>
+  </div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-number">D3</div>
+      <div class="day-title">Visita a Centro de Distribución</div>
+      <div class="day-date">Miércoles — 18 Jun 2026</div>
+    </div>
+    <ul class="tasks">
+      <li><span class="task-time">08:00</span><span class="task-desc">Traslado a bodega principal</span></li>
+      <li><span class="task-time">09:30</span><span class="task-desc">Recorrido de operaciones logísticas</span></li>
+      <li><span class="task-time">12:00</span><span class="task-desc">Reunión con <span class="highlight">jefe de cadena de suministro</span></span></li>
+      <li><span class="task-time">15:00</span><span class="task-desc">Mapeo de flujo de inventario</span></li>
+    </ul>
+  </div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-number">D4</div>
+      <div class="day-title">Visita a Sucursales Piloto</div>
+      <div class="day-date">Jueves — 19 Jun 2026</div>
+    </div>
+    <ul class="tasks">
+      <li><span class="task-time">09:00</span><span class="task-desc">Visita sucursal 1: operación de piso</span></li>
+      <li><span class="task-time">12:00</span><span class="task-desc">Visita sucursal 2: interacción con clientes</span></li>
+      <li><span class="task-time">16:00</span><span class="task-desc">Focus group con empleados de tienda</span></li>
+    </ul>
+  </div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-number">D5</div>
+      <div class="day-title">Día de Análisis y Documentación</div>
+      <div class="day-date">Viernes — 20 Jun 2026</div>
+    </div>
+    <ul class="tasks">
+      <li><span class="task-time">AM</span><span class="task-desc">Consolidación de hallazgos en Notion</span></li>
+      <li><span class="task-time">PM</span><span class="task-desc">Preparación de <span class="highlight">propuesta técnica v2</span></span></li>
+      <li><span class="task-time">Noche</span><span class="task-desc">Cena de networking con stakeholders</span></li>
+    </ul>
+  </div>
+
+  <div class="week-label">Semana 2 — Cierre &amp; Definición</div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-number">D6</div>
+      <div class="day-title">Reunión de Cierre Comercial</div>
+      <div class="day-date">Lunes — 23 Jun 2026</div>
+    </div>
+    <ul class="tasks">
+      <li><span class="task-time">09:00</span><span class="task-desc">Presentación de ajustes tras visitas</span></li>
+      <li><span class="task-time">11:00</span><span class="task-desc">Negociación de <span class="highlight">términos comerciales</span></span></li>
+      <li><span class="task-time">14:00</span><span class="task-desc">Revisión de contrato / SLA</span></li>
+      <li><span class="task-time">16:00</span><span class="task-desc">Timeline de implementación</span></li>
+    </ul>
+  </div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-number">D7</div>
+      <div class="day-title">Definición Técnica &amp; Arquitectura</div>
+      <div class="day-date">Martes — 24 Jun 2026</div>
+    </div>
+    <ul class="tasks">
+      <li><span class="task-time">09:00</span><span class="task-desc">Workshop de integración con sistemas FS</span></li>
+      <li><span class="task-time">13:00</span><span class="task-desc">Definición de API y endpoints</span></li>
+      <li><span class="task-time">15:00</span><span class="task-desc">Plan de pruebas piloto</span></li>
+    </ul>
+  </div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-number">D8</div>
+      <div class="day-title">Preparación de Lanzamiento Piloto</div>
+      <div class="day-date">Miércoles — 25 Jun 2026</div>
+    </div>
+    <ul class="tasks">
+      <li><span class="task-time">AM</span><span class="task-desc">Configuración de entorno de staging</span></li>
+      <li><span class="task-time">PM</span><span class="task-desc">Capacitación a equipo local de FS</span></li>
+      <li><span class="task-time">Noche</span><span class="task-desc">Revisión de métricas de éxito</span></li>
+    </ul>
+  </div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-number">D9</div>
+      <div class="day-title">Día de Seguimiento y Ajustes</div>
+      <div class="day-date">Jueves — 26 Jun 2026</div>
+    </div>
+    <ul class="tasks">
+      <li><span class="task-time">AM</span><span class="task-desc">Monitoreo de operación piloto</span></li>
+      <li><span class="task-time">PM</span><span class="task-desc">Corrección de errores en caliente</span></li>
+      <li><span class="task-time">16:00</span><span class="task-desc">Retroalimentación con equipo FS</span></li>
+    </ul>
+  </div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-number">D10</div>
+      <div class="day-title">Cierre y Regreso</div>
+      <div class="day-date">Viernes — 27 Jun 2026</div>
+    </div>
+    <ul class="tasks">
+      <li><span class="task-time">09:00</span><span class="task-desc">Reunión de cierre con <span class="highlight">alta dirección</span></span></li>
+      <li><span class="task-time">12:00</span><span class="task-desc">Firma de actas y acuerdos</span></li>
+      <li><span class="task-time">PM</span><span class="task-desc">Traslado al aeropuerto</span></li>
+      <li><span class="task-time">Noche</span><span class="task-desc">Vuelo de regreso a Colombia</span></li>
+    </ul>
+  </div>
+</div>
+
+<div class="footer">
+  <p>Calendario operativo — Rigel México 2026 · Para ediciones, modificar <code>index.html</code> y hacer push a GitHub.</p>
+</div>
+</body>
+</html>
