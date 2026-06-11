@@ -173,6 +173,16 @@
       border: 1px solid rgba(255,255,255,.08);
       color: var(--soft);
       font-size: .92rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+
+    .pill:hover {
+      transform: translateY(-1px);
+      border-color: rgba(116,240,224,.26);
+      background: rgba(116,240,224,.08);
     }
 
     .stats {
@@ -669,7 +679,7 @@
           <h3>✦ Atajos previstos</h3>
           <div class="pill-row">
             <span class="pill">Boarding pass</span>
-            <span class="pill">Maps del stay</span>
+            <a class="pill" href="https://es-l.airbnb.com/rooms/699987486206699701?unique_share_id=f3f72846-e07f-4a80-a7e6-9a666a9f1f6c&amp;viralityEntryPoint=1&amp;s=76" target="_blank" rel="noreferrer">Airbnb del stay</a>
             <span class="pill">Restaurantes</span>
             <span class="pill">Checklist</span>
             <span class="pill">Presupuesto</span>
@@ -691,12 +701,16 @@
       <div class="flow">
         <article class="flow-card">
           <small class="label">Stay</small>
-          <strong>Airbnb & hospedaje</strong>
+          <strong>Apartamento Sunrise · Tulum</strong>
           <ul class="clean">
-            <li>Nombre o referencia del lugar</li>
-            <li>Dirección, barrio y llegada</li>
-            <li>Check-in, host, acceso y WiFi</li>
+            <li>Condo completo en Tulum, México</li>
+            <li>4 huéspedes · 2 habitaciones · 2 camas · 2 baños</li>
+            <li>5 piscinas, gimnasio y wifi de 200 Mbps</li>
+            <li>Calificación 4,93/5 en 175 reseñas</li>
           </ul>
+          <div class="empty" style="margin-top:14px;">
+            Link del stay ya cargado en el sitio. Queda pendiente sumar dirección exacta, instrucciones de llegada y cualquier nota útil del host.
+          </div>
         </article>
 
         <article class="flow-card">
