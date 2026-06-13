@@ -1043,7 +1043,7 @@ function goRoute(){
   const addr = document.getElementById('airbnb-addr').value.trim();
   const dest = '20.198447,-87.461503';
   const origin = addr ? encodeURIComponent(addr) : 'Tulum,+Quintana+Roo';
-  window.open('https://www.google.com/maps/dir/?api=1&origin=' + origin + '&destination=' + dest, '_blank');
+  location.href = 'https://www.google.com/maps/dir/?api=1&origin=' + origin + '&destination=' + dest;
 }
 
 dep.addEventListener('input', buildUrl);
