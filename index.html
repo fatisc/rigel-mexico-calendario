@@ -308,6 +308,7 @@ a{color:inherit;text-decoration:none}
       <a href="#itinerario" class="btn btn-outline">Cronograma</a>
       <a href="#alimentacion" class="btn btn-gold">🍽 Alimentación</a>
       <a href="#hospedaje" class="btn btn-outline">Hospedaje</a>
+      <a href="#ubicacion" class="btn btn-outline">📍 Instalación</a>
     </div>
   </div>
   <div class="hero-visual">
@@ -343,10 +344,9 @@ a{color:inherit;text-decoration:none}
   </div>
 
   <div class="flight-presets">
-    <button onclick="setDates('','')" class="active" id="preset-clear">📅 Elegir fechas</button>
-    <button onclick="setDates(14,34)">Persona 1: Día 1→20</button>
-    <button onclick="setDates(21,34)">Personas 2 y 3: Día 8→20</button>
-    <button onclick="setDates(14,34)">Todos juntos (vuelven día 20)</button>
+    <button onclick="setDates(this,'','')" class="active" id="preset-clear">📅 Elegir fechas</button>
+    <button onclick="setDates(this,14,34)">Persona 1: Día 1→20</button>
+    <button onclick="setDates(this,21,34)">Personas 2 y 3: Día 8→20</button>
   </div>
 
   <div class="fp">
@@ -994,10 +994,10 @@ function buildUrl(){
   gfLink.href = url;
 }
 
-function setDates(depOffset, retOffset){
+function setDates(btn, depOffset, retOffset){
   const today = new Date();
   document.querySelectorAll('.flight-presets button').forEach(b => b.classList.remove('active'));
-  event.target.classList.add('active');
+  if(btn) btn.classList.add('active');
 
   if(!depOffset && !retOffset){
     dep.value = '';
@@ -1010,8 +1010,27 @@ function setDates(depOffset, retOffset){
     r.setDate(r.getDate() + retOffset);
     ret.value = r.toISOString().split('T')[0];
   }
+  validateDates();
   buildUrl();
 }
+
+function validateDates(){
+  const wrn = document.getElementById('date-warning');
+  if(dep.value && ret.value && dep.value >= ret.value){
+    if(!wrn){
+      const w = document.createElement('p');
+      w.id = 'date-warning';
+      w.style.cssText = 'color:oklch(68% .2 30);font-size:.82rem;margin:6px 0 0;';
+      w.textContent = '⚠ La fecha de ida debe ser anterior a la de vuelta';
+      document.querySelector('.fp').after(w);
+    }
+  } else if(wrn){
+    wrn.remove();
+  }
+}
+
+dep.addEventListener('input', validateDates);
+ret.addEventListener('input', validateDates);
 
 dep.addEventListener('input', buildUrl);
 ret.addEventListener('input', buildUrl);
