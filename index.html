@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RIGEL · Despliegue México</title>
-<meta name="description" content="Itinerario operativo del despliegue RIGEL × Farmacias Similares en México. 10 días de ruta completa: llegada, operación, piloto y cierre.">
+<meta name="description" content="Cronograma operativo del despliegue RIGEL × Farmacias Similares en Tulum, México. 20 días de operación: preparación, fabricación, ensamble, pruebas, capacitación y expansión comercial.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
@@ -22,14 +22,14 @@
   --gold-glow:oklch(78% .12 72/.35);
   --stone:oklch(30% .025 55);
   --line:oklch(100% 0 0/.08);
-  --line-2:oklch(100% 0 0/.12);
+  --line-bold:oklch(100% 0 0/.14);
   --ease-out-expo:cubic-bezier(.16,1,.3,1);
   --ease-out-quart:cubic-bezier(.25,1,.5,1);
   --ease-out-quint:cubic-bezier(.22,1,.36,1);
   --radius:18px;
   --radius-lg:28px;
   --radius-xl:36px;
-  --max:1240px;
+  --max:1260px;
   --shadow-lg:0 28px 80px rgba(0,0,0,.5),0 6px 20px rgba(0,0,0,.35);
   --shadow-card:0 12px 40px rgba(0,0,0,.35);
 }
@@ -59,21 +59,20 @@ a{color:inherit;text-decoration:none}
 /* ===== SHELL ===== */
 .shell{width:min(calc(100% - 28px),var(--max));margin:0 auto;padding:24px 0 80px}
 
-/* ===== ATMOSPHERE BACKGROUND ===== */
+/* ===== ATMOSPHERE ===== */
 .atmos{
   position:fixed;inset:0;pointer-events:none;z-index:0;
   background:
-    radial-gradient(45% 40% at 18% 15%,oklch(72% .17 28/.15),transparent 55%),
-    radial-gradient(35% 35% at 82% 20%,oklch(78% .12 72/.1),transparent 50%),
-    radial-gradient(50% 45% at 55% 85%,oklch(72% .17 28/.08),transparent 58%);
+    radial-gradient(42% 38% at 15% 12%,oklch(72% .17 28/.14),transparent 52%),
+    radial-gradient(32% 32% at 80% 18%,oklch(78% .12 72/.09),transparent 48%),
+    radial-gradient(45% 40% at 52% 82%,oklch(72% .17 28/.07),transparent 55%);
 }
 
 /* ===== HERO ===== */
 .hero{
   position:relative;z-index:1;
   display:grid;grid-template-columns:1.1fr .9fr;gap:20px;
-  align-items:stretch;
-  margin-bottom:24px;
+  align-items:stretch;margin-bottom:20px;
 }
 .hero-main{
   display:flex;flex-direction:column;justify-content:space-between;
@@ -81,34 +80,32 @@ a{color:inherit;text-decoration:none}
 }
 .kicker{
   display:inline-flex;align-items:center;gap:8px;
-  padding:8px 14px;border-radius:999px;
+  padding:7px 13px;border-radius:999px;
   border:1px solid var(--line);background:oklch(100% 0 0/.035);
-  font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);
-  font-weight:600;width:fit-content;
-  backdrop-filter:blur(12px);
+  font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);
+  font-weight:600;width:fit-content;backdrop-filter:blur(12px);
 }
 .headline{
-  margin:22px 0 0;padding:0;
+  margin:20px 0 0;padding:0;
   font-family:'DM Serif Display',Georgia,serif;
-  font-size:clamp(2.8rem,5vw+1rem,5.8rem);
+  font-size:clamp(2.6rem,4.8vw+1rem,5.4rem);
   line-height:.92;letter-spacing:-.04em;
-  font-weight:400;
-  max-width:670px;
+  font-weight:400;max-width:650px;
 }
 .headline em{font-style:italic;color:var(--gold)}
 .lede{
-  margin:20px 0 0;max-width:570px;
+  margin:18px 0 0;max-width:560px;
   color:var(--muted);line-height:1.8;
-  font-size:clamp(1rem,.94rem+.3vw,1.12rem);
+  font-size:clamp(1rem,.94rem+.3vw,1.1rem);
 }
 .hero-actions{
-  display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;
+  display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;
 }
 .btn{
   display:inline-flex;align-items:center;gap:8px;
-  padding:12px 22px;border-radius:999px;
+  padding:11px 20px;border-radius:999px;
   border:1px solid var(--line);background:oklch(100% 0 0/.04);
-  font-size:.88rem;font-weight:500;color:var(--soft);
+  font-size:.86rem;font-weight:500;color:var(--soft);
   transition:transform .3s var(--ease-out-expo),border-color .3s,background .3s;
   cursor:pointer;
 }
@@ -127,7 +124,7 @@ a{color:inherit;text-decoration:none}
 /* ===== HERO VISUAL ===== */
 .hero-visual{
   position:relative;border-radius:var(--radius-xl);overflow:hidden;
-  min-height:540px;background:var(--bg-2);
+  min-height:520px;background:var(--bg-2);
   border:1px solid var(--line);
 }
 .hero-visual img{
@@ -140,25 +137,25 @@ a{color:inherit;text-decoration:none}
     linear-gradient(0deg,var(--bg) 0%,transparent 25%,transparent 75%,var(--bg) 100%);
 }
 .hero-badge{
-  position:absolute;left:24px;bottom:24px;right:24px;
-  padding:20px;border-radius:24px;
-  background:oklch(10% .01 55/.8);
+  position:absolute;left:20px;bottom:20px;right:20px;
+  padding:18px;border-radius:22px;
+  background:oklch(10% .01 55/.82);
   border:1px solid var(--line);backdrop-filter:blur(20px);
   box-shadow:var(--shadow-card);
 }
 .hero-badge small{
-  display:block;color:var(--gold);font-size:.75rem;
-  letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;
+  display:block;color:var(--gold);font-size:.72rem;
+  letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;
 }
 .hero-badge strong{
-  display:block;font-size:1.2rem;margin-bottom:4px;letter-spacing:-.02em;
+  display:block;font-size:1.15rem;margin-bottom:4px;letter-spacing:-.02em;
 }
-.hero-badge p{margin:0;color:var(--muted);line-height:1.6;font-size:.95rem;}
+.hero-badge p{margin:0;color:var(--muted);line-height:1.55;font-size:.9rem;}
 
 /* ===== SECTION ===== */
 .sec{
   position:relative;z-index:1;
-  margin-top:22px;padding:32px;
+  margin-top:20px;padding:30px;
   border-radius:var(--radius-xl);
   border:1px solid var(--line);
   background:linear-gradient(180deg,oklch(100% 0 0/.03),oklch(100% 0 0/.015));
@@ -167,7 +164,7 @@ a{color:inherit;text-decoration:none}
 }
 .sec-head{
   display:flex;justify-content:space-between;align-items:end;gap:16px;
-  margin-bottom:24px;
+  margin-bottom:22px;
 }
 .sec-title{
   margin:0;font-size:clamp(1.3rem,2.5vw,2rem);
@@ -175,65 +172,85 @@ a{color:inherit;text-decoration:none}
   font-weight:400;letter-spacing:-.02em;
 }
 .sec-sub{
-  margin:6px 0 0;color:var(--muted);max-width:680px;line-height:1.7;
+  margin:5px 0 0;color:var(--muted);max-width:660px;line-height:1.7;
 }
 .tag{
   display:inline-flex;align-items:center;gap:6px;
-  padding:7px 13px;border-radius:999px;
+  padding:6px 12px;border-radius:999px;
   border:1px solid var(--line);background:oklch(100% 0 0/.03);
-  font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);
+  font-size:.73rem;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);
   font-weight:600;white-space:nowrap;
 }
 
 /* ===== STATS RIBBON ===== */
 .ribbon{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
-  margin-bottom:24px;
+  display:grid;grid-template-columns:repeat(5,1fr);gap:12px;
+  margin-bottom:20px;
 }
 .stat{
-  padding:16px;border-radius:20px;
+  padding:14px;border-radius:18px;
   border:1px solid var(--line);
   background:oklch(100% 0 0/.03);
 }
-.stat small{display:block;color:var(--muted);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;}
-.stat strong{display:block;font-size:1.05rem;letter-spacing:-.02em;}
+.stat small{display:block;color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:5px;}
+.stat strong{display:block;font-size:1rem;letter-spacing:-.02em;}
 
-/* ===== DAILY ITINERARY ===== */
-.days{display:grid;gap:14px;}
+/* ===== PHASE HEADER ===== */
+.phase-hdr{
+  display:flex;align-items:center;gap:14px;
+  margin:28px 0 14px;padding:14px 18px;
+  border-radius:var(--radius-lg);
+  border:1px solid var(--line-bold);
+  background:linear-gradient(135deg,oklch(72% .17 28/.1),oklch(72% .17 28/.02));
+}
+.phase-hdr:first-of-type{margin-top:0}
+.phase-num{
+  font-family:'DM Serif Display',Georgia,serif;
+  font-size:1.1rem;color:var(--accent);letter-spacing:-.02em;
+  min-width:48px;
+}
+.phase-hdr h3{margin:0;font-size:1.05rem;font-weight:600;letter-spacing:-.02em;color:var(--soft)}
+.phase-hdr span{
+  margin-left:auto;color:var(--muted);font-size:.78rem;white-space:nowrap;
+}
+
+/* ===== DAYS ===== */
+.days{display:grid;gap:10px;margin-bottom:8px;}
 .day{
-  display:grid;grid-template-columns:85px 1fr;gap:16px;
-  padding:16px 20px;border-radius:22px;
+  display:grid;grid-template-columns:80px 130px 1fr;gap:14px;
+  padding:14px 18px;border-radius:20px;
   border:1px solid var(--line);
   background:oklch(100% 0 0/.025);
-  transition:border-color .3s,background .3s;
+  transition:border-color .25s,background .25s;
   align-items:start;
 }
 .day:hover{
-  border-color:oklch(72% .17 28/.25);
+  border-color:oklch(72% .17 28/.2);
   background:oklch(100% 0 0/.035);
 }
 .day-num{
   font-family:'DM Serif Display',Georgia,serif;
-  font-size:1.6rem;color:var(--accent);line-height:1;
-  letter-spacing:-.03em;
-  padding-top:2px;
+  font-size:1.3rem;color:var(--accent);line-height:1;
+  letter-spacing:-.03em;padding-top:2px;
 }
 .day-num small{
   display:block;font-family:Inter,sans-serif;
-  font-size:.7rem;color:var(--muted);font-weight:400;
-  letter-spacing:.06em;text-transform:uppercase;
-  margin-top:4px;
+  font-size:.65rem;color:var(--muted);font-weight:400;
+  letter-spacing:.05em;text-transform:uppercase;
+  margin-top:3px;
 }
-.day h3{margin:0 0 4px;font-size:1.05rem;font-weight:600;letter-spacing:-.02em;color:var(--soft);}
-.day p{margin:0;color:var(--muted);line-height:1.7;font-size:.92rem;}
-.day .tags{
-  display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;
+.day-loc{
+  font-size:.88rem;color:var(--muted);
 }
-.day .tags span{
-  padding:4px 10px;border-radius:999px;
-  background:oklch(100% 0 0/.04);border:1px solid var(--line);
-  font-size:.75rem;color:var(--soft);
+.day-loc strong{
+  display:block;font-weight:500;color:var(--soft);margin-bottom:2px;
+  font-size:.92rem;
 }
+.day-loc small{
+  display:block;font-size:.75rem;color:var(--muted);
+}
+.day h4{margin:0 0 3px;font-size:.98rem;font-weight:600;letter-spacing:-.02em;color:var(--soft);}
+.day p{margin:0;color:var(--muted);line-height:1.6;font-size:.88rem;}
 
 /* ===== EMBED SECTION ===== */
 .embed-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;}
@@ -243,7 +260,7 @@ a{color:inherit;text-decoration:none}
   background:var(--bg-2);
 }
 .embed-hero-img{
-  position:relative;min-height:440px;overflow:hidden;
+  position:relative;min-height:420px;overflow:hidden;
 }
 .embed-hero-img img{
   width:100%;height:100%;object-fit:cover;position:absolute;inset:0;
@@ -254,39 +271,37 @@ a{color:inherit;text-decoration:none}
   content:"";position:absolute;inset:0;
   background:linear-gradient(0deg,oklch(10% .01 55/.85),transparent 50%);
 }
-.embed-body{padding:24px;}
+.embed-body{padding:22px;}
 .embed-body small{
-  display:block;color:var(--gold);font-size:.75rem;
-  text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;
+  display:block;color:var(--gold);font-size:.72rem;
+  text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px;
 }
-.embed-body h3{margin:0 0 8px;font-size:1.35rem;letter-spacing:-.02em;font-weight:600;}
-.embed-body p{margin:0;color:var(--muted);line-height:1.75;font-size:.95rem;}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+.embed-body h3{margin:0 0 7px;font-size:1.3rem;letter-spacing:-.02em;font-weight:600;}
+.embed-body p{margin:0;color:var(--muted);line-height:1.7;font-size:.92rem;}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px;}
 .chip{
-  padding:7px 12px;border-radius:999px;
+  padding:6px 11px;border-radius:999px;
   border:1px solid var(--line);background:oklch(100% 0 0/.035);
-  font-size:.82rem;color:var(--soft);
+  font-size:.8rem;color:var(--soft);
 }
-.embed-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
+.embed-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;}
 
 /* ===== MOSAIC ===== */
-.mosaic{
-  display:grid;grid-template-columns:1fr 1fr;gap:12px;
-}
+.mosaic{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 .mosaic-card{
   overflow:hidden;border-radius:var(--radius-lg);
   border:1px solid var(--line);background:var(--bg-2);
-  padding:14px;
+  padding:12px;
 }
 .mosaic-head{
   display:flex;justify-content:space-between;align-items:baseline;gap:10px;
-  margin-bottom:12px;padding:0 2px;
+  margin-bottom:10px;padding:0 2px;
 }
-.mosaic-head strong{font-size:.98rem;letter-spacing:-.02em;}
-.mosaic-head span{color:var(--muted);font-size:.82rem;}
+.mosaic-head strong{font-size:.95rem;letter-spacing:-.02em;}
+.mosaic-head span{color:var(--muted);font-size:.8rem;}
 .thumb{
-  overflow:hidden;border-radius:18px;border:1px solid var(--line);
-  background:var(--bg);min-height:150px;position:relative;
+  overflow:hidden;border-radius:16px;border:1px solid var(--line);
+  background:var(--bg);min-height:140px;position:relative;
 }
 .thumb img{
   width:100%;height:100%;object-fit:cover;position:absolute;inset:0;
@@ -294,61 +309,65 @@ a{color:inherit;text-decoration:none}
 }
 .thumb:hover img{transform:scale(1.05)}
 .thumb span{
-  position:absolute;left:12px;bottom:10px;
-  padding:6px 10px;border-radius:999px;
+  position:absolute;left:10px;bottom:8px;
+  padding:5px 9px;border-radius:999px;
   background:oklch(8% .01 55/.72);backdrop-filter:blur(10px);
   border:1px solid oklch(100% 0 0/.08);
-  font-size:.78rem;color:var(--fg);
+  font-size:.75rem;color:var(--fg);
 }
 
-/* ===== MAP / NEXT ===== */
+/* ===== NEXT / CARDS ===== */
 .next-card{
-  margin-top:14px;padding:22px;border-radius:var(--radius-lg);
+  margin-top:12px;padding:20px;border-radius:var(--radius-lg);
   border:1px solid oklch(78% .12 72/.12);
   background:linear-gradient(135deg,oklch(78% .12 72/.06),oklch(78% .12 72/.015));
 }
 .next-card small{
-  display:block;color:var(--gold);font-size:.75rem;
-  text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;
+  display:block;color:var(--gold);font-size:.72rem;
+  text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;
 }
-.next-card strong{display:block;font-size:1.05rem;margin-bottom:6px;letter-spacing:-.02em;}
-.next-card p{margin:0;color:var(--muted);line-height:1.7;}
+.next-card strong{display:block;font-size:1rem;margin-bottom:5px;letter-spacing:-.02em;}
+.next-card p{margin:0;color:var(--muted);line-height:1.65;font-size:.88rem;}
 
-/* ===== REFERENCE GRID ===== */
-.ref-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+/* ===== REF GRID ===== */
+.ref-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 .ref-card{
-  padding:20px;border-radius:22px;
+  padding:18px;border-radius:20px;
   border:1px solid var(--line);
   background:oklch(100% 0 0/.025);
 }
 .ref-card small{
-  display:block;color:var(--gold);font-size:.72rem;
-  text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;
+  display:block;color:var(--gold);font-size:.7rem;
+  text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;
 }
-.ref-card strong{display:block;font-size:1rem;margin-bottom:4px;letter-spacing:-.02em;}
-.ref-card p{margin:0;color:var(--muted);line-height:1.65;font-size:.9rem;}
+.ref-card strong{display:block;font-size:.95rem;margin-bottom:3px;letter-spacing:-.02em;}
+.ref-card p{margin:0;color:var(--muted);line-height:1.6;font-size:.87rem;}
 
 /* ===== FOOTER ===== */
-.foot{padding:40px 10px 0;text-align:center;color:var(--muted);font-size:.9rem;position:relative;z-index:1;}
+.foot{padding:36px 10px 0;text-align:center;color:var(--muted);font-size:.86rem;position:relative;z-index:1;}
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:1100px){
   .hero{grid-template-columns:1fr}
   .hero-main{padding:28px 0 0}
-  .hero-visual{min-height:440px}
+  .hero-visual{min-height:420px}
   .embed-grid{grid-template-columns:1fr}
-  .ribbon{grid-template-columns:repeat(2,1fr)}
+  .ribbon{grid-template-columns:repeat(3,1fr)}
 }
-@media(max-width:740px){
+@media(max-width:760px){
   .shell{width:min(calc(100% - 16px),var(--max))}
-  .sec,.hero-main{padding:20px}
-  .ribbon{grid-template-columns:1fr}
-  .day{grid-template-columns:1fr;gap:8px}
-  .day-num small{display:inline;margin-left:6px}
+  .sec,.hero-main{padding:18px}
+  .ribbon{grid-template-columns:repeat(2,1fr)}
+  .day{grid-template-columns:1fr;gap:6px}
+  .day-num small{display:inline;margin-left:5px}
   .ref-grid{grid-template-columns:1fr}
   .mosaic{grid-template-columns:1fr}
-  .hero-visual{min-height:340px}
+  .hero-visual{min-height:300px}
   .sec-head{flex-direction:column;align-items:start}
+  .phase-hdr{flex-wrap:wrap}
+}
+@media(max-width:480px){
+  .ribbon{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -365,12 +384,13 @@ a{color:inherit;text-decoration:none}
       <span class="kicker">✦ RIGEL × Farmacias Similares</span>
       <h1 class="headline">Despliegue<br><em>México</em></h1>
       <p class="lede">
-        10 días de operación para instalar punto de acopio, validar dron con precision landing 
-        sobre techo, probar monitoreo en plataforma y dejar la operación corriendo con Farmacias Similares.
+        20 días de operación para fabricar, instalar y poner en marcha el ecosistema de drones Rigel 
+        para entrega de medicamentos. Incluye validación técnica completa y expansión comercial con 
+        Paquetería Express en CDMX.
       </p>
     </div>
     <div class="hero-actions">
-      <a href="#itinerario" class="btn btn-primary">Ver itinerario completo →</a>
+      <a href="#itinerario" class="btn btn-primary">Ver cronograma completo →</a>
       <a href="#hospedaje" class="btn btn-outline">Hospedaje</a>
     </div>
   </div>
@@ -380,124 +400,246 @@ a{color:inherit;text-decoration:none}
          loading="lazy">
     <div class="hero-mask"></div>
     <div class="hero-badge">
-      <small>Hospedaje cargado</small>
+      <small>Base operativa</small>
       <strong>Apartamento Sunrise · Tulum</strong>
-      <p>Condo completo para 4, 2 habitaciones, 2 baños, 5 piscinas, gimnasio, wifi 200 Mbps</p>
+      <p>Condo completo para 4 personas. 2 habitaciones, 2 baños, 5 piscinas, gimnasio, wifi 200 Mbps</p>
     </div>
   </div>
 </header>
 
-<!-- ===== RIbbon ===== -->
+<!-- ===== RIBBON ===== -->
 <div class="ribbon">
-  <div class="stat"><small>Duración</small><strong>10 días</strong></div>
+  <div class="stat"><small>Duración</small><strong>20 días</strong></div>
   <div class="stat"><small>Cliente</small><strong>Farmacias Similares</strong></div>
-  <div class="stat"><small>Base operativa</small><strong>Tulum</strong></div>
-  <div class="stat"><small>Estado</small><strong>En planeación</strong></div>
+  <div class="stat"><small>Base</small><strong>Tulum, QR</strong></div>
+  <div class="stat"><small>Fases</small><strong>6</strong></div>
+  <div class="stat"><small>Equipo</small><strong>3 personas</strong></div>
 </div>
 
 <!-- ===== ITINERARIO ===== -->
 <section class="sec" id="itinerario">
   <div class="sec-head">
     <div>
-      <h2 class="sec-title">Itinerario</h2>
-      <p class="sec-sub">Día a día del despliegue: desde la llegada y alineación con el cliente hasta el piloto operativo y el cierre.</p>
+      <h2 class="sec-title">Cronograma operativo</h2>
+      <p class="sec-sub">20 días calendario divididos en 6 fases. Primero viaja persona 1 (días 1–7), luego se suman 2 más (días 8–18). Los días 19–20 son en Ciudad de México.</p>
     </div>
-    <span class="tag">10 días · operativo</span>
+    <span class="tag">20 días · 6 fases</span>
   </div>
 
+  <!-- ===== FASE 1 ===== -->
+  <div class="phase-hdr">
+    <div class="phase-num">Fase I</div>
+    <h3>Preparación local y proveedores</h3>
+    <span>Días 1–3 · 1 persona</span>
+  </div>
   <div class="days">
-
     <article class="day">
       <div class="day-num">01<small>llegada</small></div>
+      <div class="day-loc"><strong>Tulum</strong><small>1 persona</small></div>
       <div>
-        <h3>Llegada a México · Traslado a Tulum</h3>
-        <p>Aterrizaje, recepción en aeropuerto, traslado al Airbnb en Tulum. Check-in, reconocimiento de la zona, compras de provisiones y primera lectura de agenda con el equipo.</p>
-        <div class="tags"><span>🛬 Vuelo</span><span>🚗 Transfer</span><span>🏠 Check-in</span></div>
+        <h4>Llegada, reconocimiento de zona y revisión del sitio</h4>
+        <p>Aterrizaje en México, traslado a Tulum. Reconocimiento del terreno donde irá el punto de acopio. Validación del sitio e identificación de necesidades técnicas para la instalación.</p>
       </div>
     </article>
-
     <article class="day">
-      <div class="day-num">02<small>apertura</small></div>
+      <div class="day-num">02<small>proveedores</small></div>
+      <div class="day-loc"><strong>Tulum / Alrededores</strong><small>1 persona</small></div>
       <div>
-        <h3>Apertura con Farmacias Similares</h3>
-        <p>Reunión ejecutiva inicial con el cliente. Presentación oficial de RIGEL, alineación de expectativas, revisión de alcance técnico y comercial. Definición de cronograma de trabajo sobre el terreno.</p>
-        <div class="tags"><span>🤝 Reunión</span><span>📋 Alcance</span><span>🏢 Cliente</span></div>
+        <h4>Búsqueda de proveedores locales</h4>
+        <p>Recorrido por talleres de metalmecánica, corte de tubo, soldadura, pintura, tornillería, ferretería, acrílicos y lámina. Cotizaciones y tiempos de entrega.</p>
       </div>
     </article>
-
     <article class="day">
-      <div class="day-num">03<small>campo</small></div>
+      <div class="day-num">03<small>materiales</small></div>
+      <div class="day-loc"><strong>Tulum</strong><small>1 persona</small></div>
       <div>
-        <h3>Visita a puntos de acopio · Reconocimiento</h3>
-        <p>Recorrido por las ubicaciones propuestas para los puntos de acopio. Evaluación de techos, estructuras disponibles y condiciones del entorno para instalación del dron y marcadores ArUco.</p>
-        <div class="tags"><span>📍 Campo</span><span>🏗️ Acopio</span><span>📐 Medición</span></div>
+        <h4>Compra de materiales principales</h4>
+        <p>Adquisición de tubos, láminas, tornillería, soportes, perfiles, pintura, cableado y elementos de fijación. Materiales base del punto de acopio listos.</p>
       </div>
     </article>
-
-    <article class="day">
-      <div class="day-num">04<small>definición</small></div>
-      <div>
-        <h3>Definición técnica · Infraestructura</h3>
-        <p>Cierre de especificaciones técnicas por ubicación: tipo de techo, fijación de marcadores ArUco, routing de red eléctrica y datos, puntos de montaje para estación base y repetidores.</p>
-        <div class="tags"><span>⚙️ Técnica</span><span>📡 Red</span><span>🔩 Montaje</span></div>
-      </div>
-    </article>
-
-    <article class="day">
-      <div class="day-num">05<small>operación</small></div>
-      <div>
-        <h3>Instalación de infraestructura</h3>
-        <p>Ejecución de montajes físicos: instalación de estructura de soporte en techo, fijación de marcadores ArUco, tendido de red y alimentación. Pruebas de conectividad y posicionamiento.</p>
-        <div class="tags"><span>🔧 Instalación</span><span>📶 Conectividad</span><span>✅ Pruebas</span></div>
-      </div>
-    </article>
-
-    <article class="day">
-      <div class="day-num">06<small>integración</small></div>
-      <div>
-        <h3>Integración dron + plataforma</h3>
-        <p>Configuración del dron en sitio, calibración de sensores en entorno real, vinculación con la plataforma de monitoreo. Pruebas de telemetría, video en vivo y comandos desde la estación base.</p>
-        <div class="tags"><span>🛸 Dron</span><span>💻 Plataforma</span><span>📊 Telemetría</span></div>
-      </div>
-    </article>
-
-    <article class="day">
-      <div class="day-num">07<small>precisión</small></div>
-      <div>
-        <h3>Precision landing · Vuelos autónomos</h3>
-        <p>Ejecución de vuelos autónomos de prueba con precision landing sobre el techo con marcador ArUco. Ajuste de parámetros de aterrizaje, tolerancias y validación visual desde la plataforma.</p>
-        <div class="tags"><span>🎯 Precisión</span><span>🤖 Autónomo</span><span>📸 Validación</span></div>
-      </div>
-    </article>
-
-    <article class="day">
-      <div class="day-num">08<small>piloto</small></div>
-      <div>
-        <h3>Piloto operativo · Día 1</h3>
-        <p>Primer día de operación piloto con el cliente in-situ. Monitoreo en tiempo real desde plataforma, supervisión de ciclos de vuelo y aterrizaje. Documentación de hallazgos y ajustes en caliente.</p>
-        <div class="tags"><span>🚀 Piloto</span><span>📹 Monitoreo</span><span>📝 Ajustes</span></div>
-      </div>
-    </article>
-
-    <article class="day">
-      <div class="day-num">09<small>validación</small></div>
-      <div>
-        <h3>Validación operativa · Capacitación</h3>
-        <p>Segundo día de piloto con transferencia al equipo local. Capacitación práctica sobre operación de la plataforma, interpretación de datos, procedimientos de emergencia y mantenimiento básico.</p>
-        <div class="tags"><span>🎓 Capacitación</span><span>🔄 Transferencia</span><span>📋 Manuales</span></div>
-      </div>
-    </article>
-
-    <article class="day">
-      <div class="day-num">10<small>cierre</small></div>
-      <div>
-        <h3>Cierre del despliegue · Regreso</h3>
-        <p>Reunión final con el cliente, entrega de documentación, actas de aceptación, acuerdos de soporte post-despliegue. Desmontaje de equipos de prueba, empaque y traslado al aeropuerto. Regreso a Colombia.</p>
-        <div class="tags"><span>📑 Cierre</span><span>🤝 Acuerdos</span><span>🛩️ Regreso</span></div>
-      </div>
-    </article>
-
   </div>
+
+  <!-- ===== FASE 2 ===== -->
+  <div class="phase-hdr">
+    <div class="phase-num">Fase II</div>
+    <h3>Fabricación del punto de acopio</h3>
+    <span>Días 4–7 · 1 persona + proveedor</span>
+  </div>
+  <div class="days">
+    <article class="day">
+      <div class="day-num">04<small>fabricación</small></div>
+      <div class="day-loc"><strong>Taller proveedor</strong><small>1 pers. + proveedor</small></div>
+      <div>
+        <h4>Inicio de fabricación: corte y estructura base</h4>
+        <p>Corte de tubos, fabricación de estructura base y soportes principales. Arranque de la construcción física del punto de acopio.</p>
+      </div>
+    </article>
+    <article class="day">
+      <div class="day-num">05<small>fabricación</small></div>
+      <div class="day-loc"><strong>Taller proveedor</strong><small>1 pers. + proveedor</small></div>
+      <div>
+        <h4>Continuación: soldadura y ajustes</h4>
+        <p>Soldadura de piezas, ajustes de medidas y avance de estructura mecánica. Revisión dimensional continua.</p>
+      </div>
+    </article>
+    <article class="day">
+      <div class="day-num">06<small>fabricación</small></div>
+      <div class="day-loc"><strong>Taller proveedor</strong><small>1 pers. + proveedor</small></div>
+      <div>
+        <h4>Finalización: acabados y protección</h4>
+        <p>Acabados, perforaciones, pintura o protección anticorrosiva. Punto de acopio listo para ensamble.</p>
+      </div>
+    </article>
+    <article class="day">
+      <div class="day-num">07<small>validación</small></div>
+      <div class="day-loc"><strong>Tulum</strong><small>1 persona</small></div>
+      <div>
+        <h4>Revisión dimensional y checklist</h4>
+        <p>Verificación de piezas, corrección de detalles mecánicos. Estructura validada antes de la llegada del equipo completo.</p>
+      </div>
+    </article>
+  </div>
+
+  <!-- ===== FASE 3 ===== -->
+  <div class="phase-hdr">
+    <div class="phase-num">Fase III</div>
+    <h3>Ensamble e instalación</h3>
+    <span>Días 8–10 · 3 personas</span>
+  </div>
+  <div class="days">
+    <article class="day">
+      <div class="day-num">08<small>equipo completo</small></div>
+      <div class="day-loc"><strong>Tulum</strong><small>llegan 2 personas</small></div>
+      <div>
+        <h4>Llegada del equipo técnico</h4>
+        <p>Arribo de las 2 personas adicionales. Revisión de materiales, herramientas, componentes electrónicos y plan de trabajo. Equipo completo en sitio.</p>
+      </div>
+    </article>
+    <article class="day">
+      <div class="day-num">09<small>ensamble</small></div>
+      <div class="day-loc"><strong>Tulum</strong><small>3 personas</small></div>
+      <div>
+        <h4>Ensamble final del punto de acopio</h4>
+        <p>Integración de estructura, actuadores, sensores, cableado, módulos electrónicos y sistema de energía. Punto de acopio ensamblado.</p>
+      </div>
+    </article>
+    <article class="day">
+      <div class="day-num">10<small>instalación</small></div>
+      <div class="day-loc"><strong>Tulum</strong><small>3 personas</small></div>
+      <div>
+        <h4>Instalación en ubicación definitiva</h4>
+        <p>Nivelación, fijación, conexión eléctrica y pruebas básicas de encendido. Punto de acopio instalado y energizado en sitio.</p>
+      </div>
+    </article>
+  </div>
+
+  <!-- ===== FASE 4 ===== -->
+  <div class="phase-hdr">
+    <div class="phase-num">Fase IV</div>
+    <h3>Pruebas técnicas</h3>
+    <span>Días 11–16 · 3 personas · fase crítica</span>
+  </div>
+  <div class="days">
+    <article class="day">
+      <div class="day-num">11<small>mecánica</small></div>
+      <div class="day-loc"><strong>Tulum</strong><small>3 personas</small></div>
+      <div>
+        <h4>Pruebas mecánicas del punto de acopio</h4>
+        <p>Apertura/cierre, elevador, sensores, electroimanes, seguridad física y ciclos repetidos. Sistema mecánico validado como estable.</p>
+      </div>
+    </article>
+    <article class="day">
+      <div class="day-num">12<small>plataforma</small></div>
+      <div class="day-loc"><strong>Tulum</strong><small>3 personas</small></div>
+      <div>
+        <h4>Pruebas de software y plataforma</h4>
+        <p>Conexión con la aplicación, backend, monitoreo en tiempo real, comandos remotos y estados del sistema. Plataforma conectada al punto de acopio.</p>
+      </div>
+    </article>
+    <article class="day">
+      <div class="day-num">13<small>precisión</small></div>
+      <div class="day-loc"><strong>Tulum</strong><small>3 personas</small></div>
+      <div>
+        <h4>Precision Landing</h4>
+        <p>Pruebas con marcador ArUco, cámara/sensores, detección, alineación y aterrizaje sobre zona segura. Calibración del aterrizaje de precisión.</p>
+      </div>
+    </article>
+    <article class="day">
+      <div class="day-num">14<small>vuelo manual</small></div>
+      <div class="day-loc"><strong>Tulum</strong><small>3 personas</small></div>
+      <div>
+        <h4>Pruebas de vuelo manual y asistido</h4>
+        <p>Estabilidad, comunicación, failsafes, geofence, telemetría y protocolos de seguridad. Dron validado en entorno local.</p>
+      </div>
+    </article>
+    <article class="day">
+      <div class="day-num">15<small>autónomo</small></div>
+      <div class="day-loc"><strong>Tulum</strong><small>3 personas</small></div>
+      <div>
+        <h4>Pruebas de vuelo autónomo</h4>
+        <p>Misión programada completa: ruta, retorno, aterrizaje y repetibilidad. Vuelo autónomo funcional y trazable.</p>
+      </div>
+    </article>
+    <article class="day">
+      <div class="day-num">16<small>ecosistema</small></div>
+      <div class="day-loc"><strong>Tulum</strong><small>3 personas</small></div>
+      <div>
+        <h4>Pruebas autónomo + plataforma</h4>
+        <p>Secuencia completa integrada: acercamiento, hover, descenso, contacto y detención de motores. Ecosistema validado de punta a punta.</p>
+      </div>
+    </article>
+  </div>
+
+  <!-- ===== FASE 5 ===== -->
+  <div class="phase-hdr">
+    <div class="phase-num">Fase V</div>
+    <h3>Capacitación y entrega</h3>
+    <span>Días 17–18 · 3 personas + Farmacias Similares</span>
+  </div>
+  <div class="days">
+    <article class="day">
+      <div class="day-num">17<small>capacitación</small></div>
+      <div class="day-loc"><strong>Tulum</strong><small>3 pers. + Farmacias Similares</small></div>
+      <div>
+        <h4>Capacitación al equipo local</h4>
+        <p>Entrenamiento en plataforma, app, operación básica, seguridad, checklist, errores comunes y protocolo de emergencia. Equipo de Farmacias Similares capacitado.</p>
+      </div>
+    </article>
+    <article class="day">
+      <div class="day-num">18<small>cierre técnico</small></div>
+      <div class="day-loc"><strong>Tulum</strong><small>3 pers. + Farmacias Similares</small></div>
+      <div>
+        <h4>Pruebas finales con el equipo local</h4>
+        <p>Operación guiada por ellos, documentación, ajustes finales y entrega de manual básico. Piloto entregado y documentado. Día colchón para correcciones si es necesario.</p>
+      </div>
+    </article>
+  </div>
+
+  <!-- ===== FASE 6 ===== -->
+  <div class="phase-hdr">
+    <div class="phase-num">Fase VI</div>
+    <h3>Expansión comercial — Paquetería Express</h3>
+    <span>Días 19–20 · CDMX</span>
+  </div>
+  <div class="days">
+    <article class="day">
+      <div class="day-num">19<small>cdmx</small></div>
+      <div class="day-loc"><strong>Ciudad de México</strong><small>equipo comercial/técnico</small></div>
+      <div>
+        <h4>Reunión con Paquetería Express</h4>
+        <p>Traslado a CDMX. Presentación del modelo Rigel, demo conceptual, alcance del negocio y requerimientos logísticos. Oportunidad comercial levantada.</p>
+      </div>
+    </article>
+    <article class="day">
+      <div class="day-num">20<small>cierre comercial</small></div>
+      <div class="day-loc"><strong>Ciudad de México</strong><small>equipo comercial/técnico</small></div>
+      <div>
+        <h4>Segunda jornada con Paquetería Express</h4>
+        <p>Visita técnica o reunión de cierre. Definición de próximos pasos, responsables y datos para propuesta. Roadmap comercial definido. Regreso a Colombia.</p>
+      </div>
+    </article>
+  </div>
+
 </section>
 
 <!-- ===== HOSPEDAJE ===== -->
@@ -505,7 +647,7 @@ a{color:inherit;text-decoration:none}
   <div class="sec-head">
     <div>
       <h2 class="sec-title">Hospedaje</h2>
-      <p class="sec-sub">Alojamientos confirmados y en gestión para la operación en Tulum.</p>
+      <p class="sec-sub">Alojamiento durante la operación en Tulum para el equipo completo.</p>
     </div>
     <span class="tag">Stay confirmado</span>
   </div>
@@ -521,15 +663,15 @@ a{color:inherit;text-decoration:none}
         <small>Airbnb · Confirmado</small>
         <h3>Apartamento Sunrise de 2 dormitorios</h3>
         <p>
-          Condo completo en Tulum con todo para una estancia larga y productiva. 2 habitaciones, 
-          2 baños, cocina equipada, 5 piscinas, gimnasio, wifi de 200 Mbps y un entorno tranquilo 
-          para operar. Calificación 4.93 · 175 reseñas.
+          Condo completo en Tulum diseñado para estancias largas. 2 habitaciones, 2 baños, cocina 
+          equipada, 5 piscinas, gimnasio y wifi de 200 Mbps. Ideal como base operativa para el 
+          equipo Rigel durante el despliegue. Calificación 4.93 · 175 reseñas.
         </p>
         <div class="chips">
           <span class="chip">4 huéspedes</span>
           <span class="chip">2 habitaciones</span>
           <span class="chip">2 baños</span>
-          <span class="chip">200 Mbps</span>
+          <span class="chip">Wifi 200 Mbps</span>
           <span class="chip">★ 4.93</span>
         </div>
         <div class="embed-actions">
@@ -567,49 +709,124 @@ a{color:inherit;text-decoration:none}
 
       <article class="next-card">
         <small>↻ Próximo</small>
-        <strong>Hotel por definir</strong>
-        <p>Si se necesita hospedaje adicional para el equipo o nights extra post-airbnb, se evaluarán opciones hoteleras cerca de la zona operativa.</p>
+        <strong>Hotel en CDMX por definir</strong>
+        <p>Para los días 19–20 se necesitará hospedaje en Ciudad de México para las reuniones con Paquetería Express. Pendiente de elección según zona de la reunión.</p>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ===== REFERENCIAS RÁPIDAS ===== -->
+<!-- ===== EQUIPO ===== -->
 <section class="sec">
   <div class="sec-head">
     <div>
-      <h2 class="sec-title">Referencias operativas</h2>
-      <p class="sec-sub">Información clave para el equipo durante el despliegue.</p>
+      <h2 class="sec-title">Equipo y materiales</h2>
+      <p class="sec-sub">Todo lo que viaja desde Colombia para el despliegue.</p>
     </div>
-    <span class="tag">uso interno</span>
+    <span class="tag">desde Colombia</span>
   </div>
-
   <div class="ref-grid">
     <article class="ref-card">
-      <small>📍 Ubicación base</small>
-      <strong>Tulum, Quintana Roo</strong>
-      <p>Zona hotelera de Tulum · Airbnb a 15 min de las zonas operativas de Farmacias Similares.</p>
+      <small>🛸 Drones</small>
+      <strong>Drones Rigel con carga/depósito</strong>
+      <p>Unidades completas con sistema de carga y compartimento de carga para medicamentos.</p>
     </article>
     <article class="ref-card">
-      <small>📦 Equipo a despliegue</small>
-      <strong>Dron + infraestructura</strong>
-      <p>Dron con estructura final, marcadores ArUco, 10 cajas brandeadas, estación base, repetidores, herramientas y repuestos.</p>
+      <small>🔋 Energía</small>
+      <strong>Estaciones de carga y descarga</strong>
+      <p>Bases de carga para los drones. Repuestos críticos y sistema de gestión de baterías.</p>
     </article>
     <article class="ref-card">
-      <small>📋 Documentación</small>
-      <strong>Cronograma maestro</strong>
-      <p>Checklist de hitos validado con el equipo técnico. Cada día tiene criterios de aceptación claros antes de avanzar.</p>
+      <small>📱 Plataforma</small>
+      <strong>Tablets con app instalada</strong>
+      <p>Dispositivos móviles con la aplicación Rigel para operación y monitoreo en campo.</p>
     </article>
     <article class="ref-card">
-      <small>📞 Contacto clave</small>
-      <strong>Farmacias Similares</strong>
-      <p>Contacto directo del cliente asignado al proyecto. Agenda de reuniones confirmada para el día 2.</p>
+      <small>🔧 Herramientas</small>
+      <strong>Herramientas de calibración</strong>
+      <p>Kit completo para mantenimiento, calibración de sensores y puesta a punto en sitio. Manuales operativos impresos.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ===== PUNTOS CRÍTICOS ===== -->
+<section class="sec">
+  <div class="sec-head">
+    <div>
+      <h2 class="sec-title">Puntos críticos del plan</h2>
+      <p class="sec-sub">Aspectos clave que definen el éxito del despliegue.</p>
+    </div>
+    <span class="tag">alertas</span>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+    <article class="ref-card" style="border-color:oklch(78% .12 72/.2);background:linear-gradient(135deg,oklch(78% .12 72/.06),transparent)">
+      <small>⚠️ Días críticos</small>
+      <strong>Días 13 al 16</strong>
+      <p>Validan el valor principal del sistema: precision landing, vuelo autónomo, integración con plataforma y operación completa del ecosistema. Si algo falla, estos días lo revelan.</p>
+    </article>
+    <article class="ref-card" style="border-color:oklch(72% .17 28/.2);background:linear-gradient(135deg,oklch(72% .17 28/.06),transparent)">
+      <small>🔄 Colchón técnico</small>
+      <strong>Día 18</strong>
+      <p>Funciona como colchón para correcciones finales, repetición de pruebas críticas o refuerzo de capacitación al equipo local.</p>
+    </article>
+    <article class="ref-card" style="border-color:oklch(78% .12 72/.2);background:linear-gradient(135deg,oklch(78% .12 72/.06),transparent)">
+      <small>📋 Pre-viaje</small>
+      <strong>Antes de salir</strong>
+      <p>Confirmar: herramientas disponibles, permisos de prueba de vuelo (DGAC México), ubicación exacta del sitio en Tulum y sede exacta de la reunión con Paquetería Express en CDMX.</p>
+    </article>
+    <article class="ref-card" style="border-color:oklch(72% .17 28/.2);background:linear-gradient(135deg,oklch(72% .17 28/.06),transparent)">
+      <small>🤝 Expansión</small>
+      <strong>Paquetería Express</strong>
+      <p>Días 19–20 en CDMX. Oportunidad de negocio aparte. Requiere preparación comercial independiente de la operación técnica en Tulum.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ===== REFERENCIAS ===== -->
+<section class="sec">
+  <div class="sec-head">
+    <div>
+      <h2 class="sec-title">Resumen por fases</h2>
+      <p class="sec-sub">Estructura general del despliegue con tiempos y objetivos.</p>
+    </div>
+    <span class="tag">vista rápida</span>
+  </div>
+  <div class="ref-grid">
+    <article class="ref-card">
+      <small>Fase I</small>
+      <strong>Preparación local y proveedores</strong>
+      <p>Días 1–3 · Conseguir proveedores, comprar materiales y validar el sitio.</p>
+    </article>
+    <article class="ref-card">
+      <small>Fase II</small>
+      <strong>Fabricación del punto de acopio</strong>
+      <p>Días 4–7 · Construir la estructura, preparar piezas y validar medidas.</p>
+    </article>
+    <article class="ref-card">
+      <small>Fase III</small>
+      <strong>Ensamble e instalación</strong>
+      <p>Días 8–10 · Armar, ubicar, fijar y energizar el punto de acopio.</p>
+    </article>
+    <article class="ref-card">
+      <small>Fase IV</small>
+      <strong>Pruebas técnicas</strong>
+      <p>Días 11–16 · Validar mecánica, software, precision landing, vuelos autónomos y plataforma.</p>
+    </article>
+    <article class="ref-card">
+      <small>Fase V</small>
+      <strong>Capacitación y entrega</strong>
+      <p>Días 17–18 · Entrenar a Farmacias Similares y dejar documentación básica.</p>
+    </article>
+    <article class="ref-card">
+      <small>Fase VI</small>
+      <strong>Expansión Paquetería Express</strong>
+      <p>Días 19–20 · Reuniones en CDMX para explorar nuevo negocio.</p>
     </article>
   </div>
 </section>
 
 <footer class="foot">
-  RIGEL · Despliegue México · Itinerario vivo — actualizado junio 2026
+  RIGEL · Despliegue México · Cronograma operativo — actualizado con plan 20 días
 </footer>
 
 </div>
