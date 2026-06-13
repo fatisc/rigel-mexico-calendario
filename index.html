@@ -4,11 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RIGEL · Despliegue México</title>
-<meta name="description" content="Cronograma operativo del despliegue RIGEL × Farmacias Similares en Tulum, México. 20 días de operación: preparación, fabricación, ensamble, pruebas, capacitación y expansión comercial.">
+<meta name="description" content="Cronograma operativo del despliegue RIGEL × Farmacias Similares. 20 días: itinerario, presupuesto, vuelos, Airbnb, plan alimenticio y comparativa de precios México vs Colombia.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
-/* ===== TOKENS ===== */
 :root{
   color-scheme:dark;
   --bg:oklch(14% .012 55);
@@ -19,7 +18,9 @@
   --accent:oklch(72% .17 28);
   --accent-dim:oklch(57% .14 28);
   --gold:oklch(78% .12 72);
-  --gold-glow:oklch(78% .12 72/.35);
+  --gold-dim:oklch(57% .1 72);
+  --green:oklch(68% .14 148);
+  --green-dim:oklch(53% .11 148);
   --stone:oklch(30% .025 55);
   --line:oklch(100% 0 0/.08);
   --line-bold:oklch(100% 0 0/.14);
@@ -120,6 +121,22 @@ a{color:inherit;text-decoration:none}
 }
 .btn-outline{border-color:var(--accent-dim);color:var(--accent)}
 .btn-outline:hover{background:oklch(72% .17 28/.1)}
+.btn-green{
+  background:linear-gradient(135deg,oklch(68% .14 148/.2),oklch(68% .14 148/.06));
+  border-color:oklch(68% .14 148/.3);color:var(--fg);
+}
+.btn-green:hover{
+  background:linear-gradient(135deg,oklch(68% .14 148/.3),oklch(68% .14 148/.1));
+  border-color:var(--green);
+}
+.btn-gold{
+  background:linear-gradient(135deg,oklch(78% .12 72/.2),oklch(78% .12 72/.06));
+  border-color:oklch(78% .12 72/.3);color:var(--fg);
+}
+.btn-gold:hover{
+  background:linear-gradient(135deg,oklch(78% .12 72/.3),oklch(78% .12 72/.1));
+  border-color:var(--gold);
+}
 
 /* ===== HERO VISUAL ===== */
 .hero-visual{
@@ -195,6 +212,27 @@ a{color:inherit;text-decoration:none}
 .stat small{display:block;color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:5px;}
 .stat strong{display:block;font-size:1rem;letter-spacing:-.02em;}
 
+/* ===== MINI TABLE ===== */
+.mtbl{width:100%;border-collapse:collapse;font-size:.9rem;}
+.mtbl td{padding:8px 12px;border-bottom:1px solid var(--line);}
+.mtbl tr:last-child td{border-bottom:none}
+.mtbl td:last-child{text-align:right;font-weight:500;white-space:nowrap;color:var(--soft)}
+.mtbl .tot td{font-weight:600;color:var(--gold);border-top:2px solid var(--line-bold);padding-top:10px}
+.mtbl .tot td:last-child{font-size:1.1rem}
+
+/* ===== FLIGHT PICKER ===== */
+.fp{display:flex;flex-wrap:wrap;gap:12px;align-items:end;margin-bottom:18px;}
+.fp-grp{display:flex;flex-direction:column;gap:4px;}
+.fp-grp label{font-size:.73rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);}
+.fp-grp input{background:oklch(100% 0 0/.08);border:1px solid var(--line);border-radius:12px;padding:10px 14px;color:var(--fg);font-family:Inter,sans-serif;font-size:.95rem;}
+.fp-grp input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px oklch(72% .17 28/.15)}
+.fp-grp select{background:oklch(100% 0 0/.08);border:1px solid var(--line);border-radius:12px;padding:10px 14px;color:var(--fg);font-family:Inter,sans-serif;font-size:.95rem;}
+.fp-grp select:focus{outline:none;border-color:var(--accent);}
+.flight-presets{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;}
+.flight-presets button{padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:oklch(100% 0 0/.04);font-size:.82rem;color:var(--muted);cursor:pointer;transition:all .25s;}
+.flight-presets button:hover{border-color:var(--accent);color:var(--fg);}
+.flight-presets button.active{background:oklch(72% .17 28/.15);border-color:var(--accent);color:var(--fg);}
+
 /* ===== PHASE HEADER ===== */
 .phase-hdr{
   display:flex;align-items:center;gap:14px;
@@ -252,7 +290,7 @@ a{color:inherit;text-decoration:none}
 .day h4{margin:0 0 3px;font-size:.98rem;font-weight:600;letter-spacing:-.02em;color:var(--soft);}
 .day p{margin:0;color:var(--muted);line-height:1.6;font-size:.88rem;}
 
-/* ===== EMBED SECTION ===== */
+/* ===== EMBED ===== */
 .embed-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;}
 .embed-hero-card{
   overflow:hidden;border-radius:var(--radius-lg);
@@ -316,18 +354,35 @@ a{color:inherit;text-decoration:none}
   font-size:.75rem;color:var(--fg);
 }
 
-/* ===== NEXT / CARDS ===== */
-.next-card{
-  margin-top:12px;padding:20px;border-radius:var(--radius-lg);
-  border:1px solid oklch(78% .12 72/.12);
-  background:linear-gradient(135deg,oklch(78% .12 72/.06),oklch(78% .12 72/.015));
+/* ===== BUDGET GRID ===== */
+.bgt{display:grid;grid-template-columns:1.65fr .85fr;gap:18px;}
+.bgt-main{border-radius:var(--radius-lg);border:1px solid var(--line);padding:22px;background:oklch(100% 0 0/.025);}
+.bgt-side{border-radius:var(--radius-lg);border:1px solid var(--line);padding:22px;background:linear-gradient(135deg,oklch(78% .12 72/.06),oklch(78% .12 72/.015));}
+.bgt-side h4{margin:0 0 10px;font-size:1rem;font-weight:600;font-family:'DM Serif Display',Georgia,serif;letter-spacing:-.02em;}
+.bgt-side p{margin:0;color:var(--muted);line-height:1.7;font-size:.88rem;}
+.bgt-side .chips{margin-top:10px;}
+
+/* ===== MEAL GRID ===== */
+.mgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+.mcard{
+  border-radius:20px;border:1px solid var(--line);padding:16px;
+  background:oklch(100% 0 0/.025);
 }
-.next-card small{
-  display:block;color:var(--gold);font-size:.72rem;
-  text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;
+.mcard h4{margin:0 0 8px;font-size:.95rem;font-weight:600;letter-spacing:-.02em;color:var(--soft);}
+.mcard p{margin:0;color:var(--muted);line-height:1.7;font-size:.86rem;}
+.mcard .tag-sm{display:inline-block;font-size:.66rem;padding:3px 8px;border-radius:999px;background:oklch(78% .12 72/.12);color:var(--gold);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;}
+
+/* ===== COMPARE GRID ===== */
+.comp{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.citem{
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;align-items:center;
+  padding:10px 14px;border-radius:14px;border:1px solid var(--line);
+  background:oklch(100% 0 0/.025);
 }
-.next-card strong{display:block;font-size:1rem;margin-bottom:5px;letter-spacing:-.02em;}
-.next-card p{margin:0;color:var(--muted);line-height:1.65;font-size:.88rem;}
+.citem .product{font-weight:500;color:var(--soft);}
+.citem .mx{color:var(--accent);}
+.citem .col{color:var(--gold);}
+.citem .diff{font-size:.8rem;color:var(--muted);text-align:right;}
 
 /* ===== REF GRID ===== */
 .ref-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
@@ -353,6 +408,7 @@ a{color:inherit;text-decoration:none}
   .hero-visual{min-height:420px}
   .embed-grid{grid-template-columns:1fr}
   .ribbon{grid-template-columns:repeat(3,1fr)}
+  .bgt,.comp,.mgrid{grid-template-columns:1fr}
 }
 @media(max-width:760px){
   .shell{width:min(calc(100% - 16px),var(--max))}
@@ -365,6 +421,9 @@ a{color:inherit;text-decoration:none}
   .hero-visual{min-height:300px}
   .sec-head{flex-direction:column;align-items:start}
   .phase-hdr{flex-wrap:wrap}
+  .citem{grid-template-columns:1fr;gap:4px;text-align:center;}
+  .citem .diff{text-align:center;}
+  .fp{flex-direction:column}
 }
 @media(max-width:480px){
   .ribbon{grid-template-columns:1fr}
@@ -385,12 +444,14 @@ a{color:inherit;text-decoration:none}
       <h1 class="headline">Despliegue<br><em>México</em></h1>
       <p class="lede">
         20 días de operación para fabricar, instalar y poner en marcha el ecosistema de drones Rigel 
-        para entrega de medicamentos. Incluye validación técnica completa y expansión comercial con 
-        Paquetería Express en CDMX.
+        para entrega de medicamentos en Tulum. Incluye presupuesto, vuelos, hospedaje, plan alimenticio y comparativa de precios.
       </p>
     </div>
     <div class="hero-actions">
-      <a href="#itinerario" class="btn btn-primary">Ver cronograma completo →</a>
+      <a href="#vuelos" class="btn btn-primary">✈ Vuelos</a>
+      <a href="#presupuesto" class="btn btn-green">💰 Presupuesto</a>
+      <a href="#itinerario" class="btn btn-outline">Cronograma</a>
+      <a href="#alimentacion" class="btn btn-gold">🍽 Alimentación</a>
       <a href="#hospedaje" class="btn btn-outline">Hospedaje</a>
     </div>
   </div>
@@ -416,6 +477,237 @@ a{color:inherit;text-decoration:none}
   <div class="stat"><small>Equipo</small><strong>3 personas</strong></div>
 </div>
 
+<!-- ===== VUELOS ===== -->
+<section class="sec" id="vuelos">
+  <div class="sec-head">
+    <div>
+      <h2 class="sec-title">Vuelos</h2>
+      <p class="sec-sub">Selecciona las fechas y ve directo a Google Vuelos con los parámetros listos. Todos los vuelos salen de Cali (CLO) con destino a Cancún (CUN) — de ahí se toma transfer a Tulum (~1.5h).</p>
+    </div>
+    <span class="tag">CLO → CUN</span>
+  </div>
+
+  <div class="flight-presets">
+    <button onclick="setDates('','')" class="active" id="preset-clear">📅 Elegir fechas</button>
+    <button onclick="setDates(14,20)">Persona 1: Día 1→20</button>
+    <button onclick="setDates(14,27)">Persona 1: Día 1→14 (vuelve antes)</button>
+    <button onclick="setDates(21,27)">Equipo: Día 8→14</button>
+    <button onclick="setDates(14,34)">Todos: Cobertura total</button>
+  </div>
+
+  <div class="fp">
+    <div class="fp-grp">
+      <label>Origen</label>
+      <select id="origin">
+        <option value="CLO" selected>Cali (CLO)</option>
+        <option value="BOG">Bogotá (BOG)</option>
+        <option value="MDE">Medellín (MDE)</option>
+      </select>
+    </div>
+    <div class="fp-grp">
+      <label>Destino</label>
+      <select id="dest">
+        <option value="CUN" selected>Cancún (CUN)</option>
+        <option value="TQO">Tulum (TQO)</option>
+      </select>
+    </div>
+    <div class="fp-grp">
+      <label>Ida</label>
+      <input type="date" id="departure">
+    </div>
+    <div class="fp-grp">
+      <label>Vuelta</label>
+      <input type="date" id="return">
+    </div>
+    <a class="btn btn-primary" id="gf-link" href="https://www.google.com/travel/flights?q=Flights+to+CUN+from+CLO" target="_blank" rel="noreferrer">✈ Buscar en Google Vuelos</a>
+  </div>
+
+  <div class="bgt" style="margin-top:6px;">
+    <div class="bgt-main">
+      <h4 style="margin:0 0 8px;font-weight:600;font-size:.95rem;letter-spacing:-.02em;">Precios estimados</h4>
+      <table class="mtbl">
+        <tr><td>Persona 1 — Ida y vuelta CLO→CUN</td><td>~ $1,500,000 COP</td></tr>
+        <tr><td>Personas 2 y 3 — Ida y vuelta CLO→CUN (c/u)</td><td>~ $1,500,000 COP</td></tr>
+        <tr><td>Transfer Cancún → Tulum (por trayecto)</td><td>~ $400,000 COP / persona</td></tr>
+        <tr class="tot"><td>Aprox total vuelos equipo (3 personas)</td><td>~ $6,400,000 COP</td></tr>
+      </table>
+    </div>
+    <div class="bgt-side">
+      <h4>💡 Tips</h4>
+      <p>Aeroméxico y Copa tienen vuelos directos CLO→CUN. Booking con 3+ semanas de anticipación: tarifas desde $1,200,000 COP. Los fines de semana suelen ser más caros.</p>
+      <p style="margin-top:8px;">Tulum (TQO) tiene vuelos desde CDMX y conexiones limitadas desde Colombia. Recomendado: CUN + transfer terrestre.</p>
+      <div class="chips">
+        <span class="chip">Aeroméxico</span>
+        <span class="chip">Copa Airlines</span>
+        <span class="chip">Avianca</span>
+        <span class="chip">Viva Aerobus</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRESUPUESTO ===== -->
+<section class="sec" id="presupuesto">
+  <div class="sec-head">
+    <div>
+      <h2 class="sec-title">Presupuesto</h2>
+      <p class="sec-sub">Desglose estimado del costo total del despliegue de 20 días para el equipo de 3 personas. Basado en datos reales de mercado Tulum 2026.</p>
+    </div>
+    <span class="tag">estimado COP</span>
+  </div>
+
+  <div class="bgt">
+    <div class="bgt-main">
+      <table class="mtbl">
+        <tr><td>✈ Vuelos — 3 personas ida y vuelta CLO→CUN</td><td>$4,500,000 COP</td></tr>
+        <tr><td>🚗 Transfer CUN ↔ Tulum (3 pers., ida y vuelta)</td><td>$1,900,000 COP</td></tr>
+        <tr><td>🏠 Airbnb — 20 noches (Apartamento Sunrise, ~$110 USD/noche)</td><td>$8,600,000 COP</td></tr>
+        <tr><td>🛒 Mercado — Alimentación 20 días para 3 personas</td><td>$2,800,000 COP</td></tr>
+        <tr><td>🍽 Comer fuera — 2-3 comidas/semana en taquerías/restaurantes</td><td>$1,200,000 COP</td></tr>
+        <tr><td>🚐 Transporte local — taxis, colectivos, gasolina</td><td>$800,000 COP</td></tr>
+        <tr><td>🔧 Materiales — fabricación punto de acopio (proveedores locales)</td><td>$3,500,000 COP</td></tr>
+        <tr><td>📱 Extras — SIM local, datos, emergencias</td><td>$400,000 COP</td></tr>
+        <tr class="tot"><td>💰 Total estimado despliegue</td><td>$23,700,000 COP</td></tr>
+      </table>
+    </div>
+    <div class="bgt-side">
+      <h4>📊 Por persona</h4>
+      <table class="mtbl">
+        <tr><td>Persona 1 (días 1-20, completa)</td><td>~ $10,600,000 COP</td></tr>
+        <tr><td>Personas 2 y 3 (días 8-18)</td><td>~ $6,500,000 COP c/u</td></tr>
+      </table>
+      <div class="chips" style="margin-top:14px;">
+        <span class="chip">🏠 Airbnb: 36%</span>
+        <span class="chip">✈ Vuelos: 19%</span>
+        <span class="chip">🔧 Materiales: 15%</span>
+        <span class="chip">🍽 Alimentación: 17%</span>
+        <span class="chip">🚗 Otros: 13%</span>
+      </div>
+      <p style="margin-top:12px;font-size:.8rem;color:var(--muted);">Tipo de cambio: 1 USD ≈ 4,200 COP · 1 MXN ≈ 220 COP (jun 2026)</p>
+    </div>
+  </div>
+
+  <div class="ref-grid" style="margin-top:14px;">
+    <article class="ref-card">
+      <small>🏠 Airbnb</small>
+      <strong>~$110 USD/noche · $2,200 USD total</strong>
+      <p>El Apartamento Sunrise de 2 habitaciones en Tulum tiene un valor estimado de $100–130 USD/noche en temporada media-alta (junio). 20 noches = $2,000–2,600 USD.</p>
+    </article>
+    <article class="ref-card">
+      <small>💰 Método de pago</small>
+      <strong>Efectivo + tarjeta</strong>
+      <p>Llevar una parte en USD en efectivo para proveedores locales y comidas de puesto. Usar tarjeta para el Airbnb, vuelos y supermercados grandes (Chedraui, Walmart).</p>
+    </article>
+  </div>
+</section>
+
+<!-- ===== PLAN ALIMENTICIO ===== -->
+<section class="sec" id="alimentacion">
+  <div class="sec-head">
+    <div>
+      <h2 class="sec-title">Plan alimenticio</h2>
+      <p class="sec-sub">Comida para los 20 días de operación. Se cocina en el Airbnb la mayoría del tiempo (la cocina del Apartamento Sunrise está equipada). Los primeros 7 días solo persona 1; días 8-18 las 3 personas; días 19-20 en CDMX.</p>
+    </div>
+    <span class="tag">20 días · 3 personas</span>
+  </div>
+
+  <div class="mgrid">
+    <article class="mcard">
+      <span class="tag-sm">🏠 Desayuno en casa</span>
+      <h4>Todos los días</h4>
+      <p>Huevos revueltos / frijoles refritos, pan tostado o tortillas, aguacate, café de olla, fruta (papaya, plátano, mango), granola con yogurt. Rápido y energético para arrancar el día de operación.</p>
+    </article>
+    <article class="mcard">
+      <span class="tag-sm">🥗 Almuerzo en campo</span>
+      <h4>Lunes a sábado</h4>
+      <p>Quesadillas o tacos de pollo/puerco, arroz, frijoles, pico de gallo. Comida que se puede llevar al taller/sitio de instalación. Fácil de preparar en batch los domingos. Agua de horchata o jamaica.</p>
+    </article>
+    <article class="mcard">
+      <span class="tag-sm">🍽 Cena variada</span>
+      <h4>Rotación semanal</h4>
+      <p>Lun: pasta con pollo y verduras. Mar: pescado a la plancha con arroz. Mié: tacos de canasta. Jue: sopa de lima + tortas. Vie: pollo asado con vegetales. Sáb: pizza casera o salir a cenar. Dom: asado con carne, cebolla asada, guacamole.</p>
+    </article>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px;">
+    <article class="mcard">
+      <span class="tag-sm">🍽 Salidas grupales</span>
+      <p style="margin-top:6px;">2-3 veces por semana salir a cenar a taquerías locales (Tulum tiene excelente comida callejera: $2-4 USD/comida). Opciones: Antojitos, Taquería Honorio, Salón de la Fama. Celebrar hitos del despliegue ahí.</p>
+    </article>
+    <article class="mcard">
+      <span class="tag-sm">🥤 Snacks e hidratación</span>
+      <p style="margin-top:6px;">Cacahuates, fruta fresca, barras de granola para el taller. Agua embotellada en garrafones (el agua de llave en México no se toma). Cerveza Modelo o Pacífico para después de la jornada.</p>
+    </article>
+  </div>
+
+  <!-- ===== LISTA DE MERCADO ===== -->
+  <div style="margin-top:20px;">
+    <div class="phase-hdr" style="background:linear-gradient(135deg,oklch(68% .14 148/.1),oklch(68% .14 148/.02));border-color:oklch(68% .14 148/.25);">
+      <div class="phase-num" style="color:var(--green);">🛒</div>
+      <h3>Lista de mercado — Primera compra grande (día 1, para toda la operación)</h3>
+      <span>~ $2,800,000 COP</span>
+    </div>
+    <div class="ref-grid">
+      <article class="ref-card">
+        <small>🌮 Despensa básica</small>
+        <strong>Arroz (5kg), frijoles (3kg), lentejas, pasta</strong>
+        <p>Aceite vegetal, sal, comino, orégano, chile en polvo, cilantro, ajo, cebolla, limones. Tortillas de maíz (pack 40). Salsa valentina o habanero.</p>
+      </article>
+      <article class="ref-card">
+        <small>🥩 Proteínas</small>
+        <strong>Pollo (4kg), carne molida (2kg), bistec (2kg)</strong>
+        <p>Huevos (4 docenas), atún en lata (12 latas), pescado fresco (tilapia/sierra, 2kg). Congelar porciones para los 20 días.</p>
+      </article>
+      <article class="ref-card">
+        <small>🥑 Frutas y verduras</small>
+        <strong>Aguacate (10), jitomate (3kg), cebolla (2kg)</strong>
+        <p>Papaya, plátano, mango, naranjas, lechuga, chiles, cilantro, ajo, papá (2kg), zanahoria, calabacín, elote. Mercado municipal es más barato que supermercado.</p>
+      </article>
+      <article class="ref-card">
+        <small>🥛 Lácteos y fríos</small>
+        <strong>Leche (4L), yogurt natural (2L), queso fresco (1kg)</strong>
+        <p>Mantequilla, crema, pan de caja, tortillas de harina. Jamón y salchichas para desayunos rápidos.</p>
+      </article>
+      <article class="ref-card">
+        <small>💧 Bebidas</small>
+        <strong>Agua embotellada (6 garrafones), café, azúcar</strong>
+        <p>Refrescos (Coca, Sprite), horchata en polvo, cerveza (2 six-packs por semana), hielo.</p>
+      </article>
+      <article class="ref-card">
+        <small>🍪 Snacks y extras</small>
+        <strong>Granola (2kg), galletas, cacahuates, papas</strong>
+        <p>Barras energéticas (para llevar al campo), mermelada, miel, aceite de oliva, vinagre, salsas embotelladas.</p>
+      </article>
+    </div>
+  </div>
+
+  <!-- ===== COMPARATIVA ===== -->
+  <div style="margin-top:20px;">
+    <div class="phase-hdr" style="background:linear-gradient(135deg,oklch(78% .12 72/.1),oklch(78% .12 72/.02));border-color:oklch(78% .12 72/.25);">
+      <div class="phase-num" style="color:var(--gold);">📊</div>
+      <h3>Comparativa precios México vs Colombia (alimentos básicos)</h3>
+      <span>junio 2026</span>
+    </div>
+    <div class="comp">
+      <div class="citem"><span class="product">🥚 Huevos (12)</span><span class="mx">MX $45</span><span class="col">COL $13,000</span><span class="diff">🇲🇽 25% más barato</span></div>
+      <div class="citem"><span class="product">🍗 Pechuga pollo (1kg)</span><span class="mx">MX $144</span><span class="col">COL $32,000</span><span class="diff">🇲🇽 38% más barato</span></div>
+      <div class="citem"><span class="product">🍅 Tomate (1kg)</span><span class="mx">MX $34</span><span class="col">COL $8,500</span><span class="diff">⚖️ Precio similar</span></div>
+      <div class="citem"><span class="product">🥑 Aguacate (1kg)</span><span class="mx">MX $50</span><span class="col">COL $15,000</span><span class="diff">🇲🇽 30% más barato</span></div>
+      <div class="citem"><span class="product">🌾 Arroz (1kg)</span><span class="mx">MX $33</span><span class="col">COL $7,000</span><span class="diff">⚖️ Precio similar</span></div>
+      <div class="citem"><span class="product">🧀 Queso fresco (1kg)</span><span class="mx">MX $162</span><span class="col">COL $38,000</span><span class="diff">🇲🇽 7% más barato</span></div>
+      <div class="citem"><span class="product">🥩 Carne de res (1kg)</span><span class="mx">MX $350</span><span class="col">COL $55,000</span><span class="diff">🇲🇽 35% más barato</span></div>
+      <div class="citem"><span class="product">🥛 Leche (1L)</span><span class="mx">MX $28</span><span class="col">COL $6,800</span><span class="diff">⚖️ Precio similar</span></div>
+      <div class="citem"><span class="product">🍌 Plátano (1kg)</span><span class="mx">MX $27</span><span class="col">COL $6,200</span><span class="diff">⚖️ Precio similar</span></div>
+      <div class="citem"><span class="product">🥔 Papa (1kg)</span><span class="mx">MX $37</span><span class="col">COL $7,800</span><span class="diff">⚖️ Precio similar</span></div>
+      <div class="citem"><span class="product">🍞 Pan (1kg)</span><span class="mx">MX $49</span><span class="col">COL $12,500</span><span class="diff">🇲🇽 15% más barato</span></div>
+      <div class="citem"><span class="product">🫘 Frijol (1kg)</span><span class="mx">MX $35</span><span class="col">COL $8,000</span><span class="diff">⚖️ Precio similar</span></div>
+    </div>
+    <p style="margin-top:12px;color:var(--muted);font-size:.86rem;text-align:center;">
+      Conclusión: Los alimentos en México son en promedio 15-20% más baratos que en Colombia. La proteína (pollo, res) es significativamente más económica. Comprar en mercados municipales de Tulum da mejores precios que en supermercados turísticos.
+    </p>
+  </div>
+</section>
+
 <!-- ===== ITINERARIO ===== -->
 <section class="sec" id="itinerario">
   <div class="sec-head">
@@ -426,7 +718,7 @@ a{color:inherit;text-decoration:none}
     <span class="tag">20 días · 6 fases</span>
   </div>
 
-  <!-- ===== FASE 1 ===== -->
+  <!-- FASE 1 -->
   <div class="phase-hdr">
     <div class="phase-num">Fase I</div>
     <h3>Preparación local y proveedores</h3>
@@ -438,7 +730,7 @@ a{color:inherit;text-decoration:none}
       <div class="day-loc"><strong>Tulum</strong><small>1 persona</small></div>
       <div>
         <h4>Llegada, reconocimiento de zona y revisión del sitio</h4>
-        <p>Aterrizaje en México, traslado a Tulum. Reconocimiento del terreno donde irá el punto de acopio. Validación del sitio e identificación de necesidades técnicas para la instalación.</p>
+        <p>Aterrizaje en Cancún, traslado a Tulum (~1.5h). Check-in en Airbnb. Reconocimiento del terreno donde irá el punto de acopio. Validación del sitio e identificación de necesidades técnicas para la instalación.</p>
       </div>
     </article>
     <article class="day">
@@ -446,7 +738,7 @@ a{color:inherit;text-decoration:none}
       <div class="day-loc"><strong>Tulum / Alrededores</strong><small>1 persona</small></div>
       <div>
         <h4>Búsqueda de proveedores locales</h4>
-        <p>Recorrido por talleres de metalmecánica, corte de tubo, soldadura, pintura, tornillería, ferretería, acrílicos y lámina. Cotizaciones y tiempos de entrega.</p>
+        <p>Recorrido por talleres de metalmecánica, corte de tubo, soldadura, pintura, tornillería, ferretería, acrílicos y lámina. Cotizaciones y tiempos de entrega. Mercado municipal para alimentos de la semana.</p>
       </div>
     </article>
     <article class="day">
@@ -454,12 +746,12 @@ a{color:inherit;text-decoration:none}
       <div class="day-loc"><strong>Tulum</strong><small>1 persona</small></div>
       <div>
         <h4>Compra de materiales principales</h4>
-        <p>Adquisición de tubos, láminas, tornillería, soportes, perfiles, pintura, cableado y elementos de fijación. Materiales base del punto de acopio listos.</p>
+        <p>Adquisición de tubos, láminas, tornillería, soportes, perfiles, pintura, cableado y elementos de fijación. Materiales base del punto de acopio listos. Reposición de víveres.</p>
       </div>
     </article>
   </div>
 
-  <!-- ===== FASE 2 ===== -->
+  <!-- FASE 2 -->
   <div class="phase-hdr">
     <div class="phase-num">Fase II</div>
     <h3>Fabricación del punto de acopio</h3>
@@ -500,7 +792,7 @@ a{color:inherit;text-decoration:none}
     </article>
   </div>
 
-  <!-- ===== FASE 3 ===== -->
+  <!-- FASE 3 -->
   <div class="phase-hdr">
     <div class="phase-num">Fase III</div>
     <h3>Ensamble e instalación</h3>
@@ -512,7 +804,7 @@ a{color:inherit;text-decoration:none}
       <div class="day-loc"><strong>Tulum</strong><small>llegan 2 personas</small></div>
       <div>
         <h4>Llegada del equipo técnico</h4>
-        <p>Arribo de las 2 personas adicionales. Revisión de materiales, herramientas, componentes electrónicos y plan de trabajo. Equipo completo en sitio.</p>
+        <p>Arribo de las 2 personas adicionales. Revisión de materiales, herramientas, componentes electrónicos y plan de trabajo. Equipo completo en sitio. Bienvenida: cena grupal en Tulum.</p>
       </div>
     </article>
     <article class="day">
@@ -533,7 +825,7 @@ a{color:inherit;text-decoration:none}
     </article>
   </div>
 
-  <!-- ===== FASE 4 ===== -->
+  <!-- FASE 4 -->
   <div class="phase-hdr">
     <div class="phase-num">Fase IV</div>
     <h3>Pruebas técnicas</h3>
@@ -590,7 +882,7 @@ a{color:inherit;text-decoration:none}
     </article>
   </div>
 
-  <!-- ===== FASE 5 ===== -->
+  <!-- FASE 5 -->
   <div class="phase-hdr">
     <div class="phase-num">Fase V</div>
     <h3>Capacitación y entrega</h3>
@@ -615,7 +907,7 @@ a{color:inherit;text-decoration:none}
     </article>
   </div>
 
-  <!-- ===== FASE 6 ===== -->
+  <!-- FASE 6 -->
   <div class="phase-hdr">
     <div class="phase-num">Fase VI</div>
     <h3>Expansión comercial — Paquetería Express</h3>
@@ -634,12 +926,11 @@ a{color:inherit;text-decoration:none}
       <div class="day-num">20<small>cierre comercial</small></div>
       <div class="day-loc"><strong>Ciudad de México</strong><small>equipo comercial/técnico</small></div>
       <div>
-        <h4>Segunda jornada con Paquetería Express</h4>
+        <h4>Segunda jornada — Roadmap y cierre</h4>
         <p>Visita técnica o reunión de cierre. Definición de próximos pasos, responsables y datos para propuesta. Roadmap comercial definido. Regreso a Colombia.</p>
       </div>
     </article>
   </div>
-
 </section>
 
 <!-- ===== HOSPEDAJE ===== -->
@@ -647,7 +938,7 @@ a{color:inherit;text-decoration:none}
   <div class="sec-head">
     <div>
       <h2 class="sec-title">Hospedaje</h2>
-      <p class="sec-sub">Alojamiento durante la operación en Tulum para el equipo completo.</p>
+      <p class="sec-sub">Alojamiento durante la operación en Tulum para el equipo completo. Costo estimado: ~$110 USD/noche.</p>
     </div>
     <span class="tag">Stay confirmado</span>
   </div>
@@ -665,7 +956,7 @@ a{color:inherit;text-decoration:none}
         <p>
           Condo completo en Tulum diseñado para estancias largas. 2 habitaciones, 2 baños, cocina 
           equipada, 5 piscinas, gimnasio y wifi de 200 Mbps. Ideal como base operativa para el 
-          equipo Rigel durante el despliegue. Calificación 4.93 · 175 reseñas.
+          equipo Rigel durante el despliegue. Calificación 4.93 · 175 reseñas. Costo estimado: ~$110 USD/noche.
         </p>
         <div class="chips">
           <span class="chip">4 huéspedes</span>
@@ -673,6 +964,7 @@ a{color:inherit;text-decoration:none}
           <span class="chip">2 baños</span>
           <span class="chip">Wifi 200 Mbps</span>
           <span class="chip">★ 4.93</span>
+          <span class="chip">~$110 USD/noche</span>
         </div>
         <div class="embed-actions">
           <a class="btn btn-primary" href="https://es-l.airbnb.com/rooms/699987486206699701?unique_share_id=f3f72846-e07f-4a80-a7e6-9a666a9f1f6c&viralityEntryPoint=1&s=76" target="_blank" rel="noreferrer">Abrir en Airbnb →</a>
@@ -680,7 +972,6 @@ a{color:inherit;text-decoration:none}
         </div>
       </div>
     </article>
-
     <div>
       <article class="mosaic-card">
         <div class="mosaic-head">
@@ -688,29 +979,28 @@ a{color:inherit;text-decoration:none}
           <span>4 fotos</span>
         </div>
         <div class="mosaic">
-          <a class="thumb" href="https://es-l.airbnb.com/rooms/699987486206699701?unique_share_id=f3f72846-e07f-4a80-a7e6-9a666a9f1f6c&viralityEntryPoint=1&s=76" target="_blank" rel="noreferrer">
+          <a class="thumb" href="https://es-l.airbnb.com/rooms/699987486206699701?s=76" target="_blank" rel="noreferrer">
             <img src="https://a0.muscache.com/im/pictures/miso/Hosting-699987486206699701/original/5c1349aa-7afd-4283-83d0-566a02be2a8d.jpeg?im_w=720" alt="Sala y comedor del stay" loading="lazy">
             <span>Sala</span>
           </a>
-          <a class="thumb" href="https://es-l.airbnb.com/rooms/699987486206699701?unique_share_id=f3f72846-e07f-4a80-a7e6-9a666a9f1f6c&viralityEntryPoint=1&s=76" target="_blank" rel="noreferrer">
+          <a class="thumb" href="https://es-l.airbnb.com/rooms/699987486206699701?s=76" target="_blank" rel="noreferrer">
             <img src="https://a0.muscache.com/im/pictures/miso/Hosting-699987486206699701/original/051d15a3-6371-4135-93d8-4030c38dc605.jpeg?im_w=720" alt="Dormitorio principal" loading="lazy">
             <span>Master</span>
           </a>
-          <a class="thumb" href="https://es-l.airbnb.com/rooms/699987486206699701?unique_share_id=f3f72846-e07f-4a80-a7e6-9a666a9f1f6c&viralityEntryPoint=1&s=76" target="_blank" rel="noreferrer">
+          <a class="thumb" href="https://es-l.airbnb.com/rooms/699987486206699701?s=76" target="_blank" rel="noreferrer">
             <img src="https://a0.muscache.com/im/pictures/miso/Hosting-699987486206699701/original/2e0db7fd-052e-4776-8232-32d8e464e160.jpeg?im_w=720" alt="Segundo dormitorio" loading="lazy">
             <span>Cuarto 2</span>
           </a>
-          <a class="thumb" href="https://es-l.airbnb.com/rooms/699987486206699701?unique_share_id=f3f72846-e07f-4a80-a7e6-9a666a9f1f6c&viralityEntryPoint=1&s=76" target="_blank" rel="noreferrer">
+          <a class="thumb" href="https://es-l.airbnb.com/rooms/699987486206699701?s=76" target="_blank" rel="noreferrer">
             <img src="https://a0.muscache.com/im/pictures/miso/Hosting-699987486206699701/original/cd03349f-dfa5-46bd-9d36-2be37f5d08f9.jpeg?im_w=720" alt="Piscina del stay" loading="lazy">
             <span>Piscina</span>
           </a>
         </div>
       </article>
-
-      <article class="next-card">
-        <small>↻ Próximo</small>
-        <strong>Hotel en CDMX por definir</strong>
-        <p>Para los días 19–20 se necesitará hospedaje en Ciudad de México para las reuniones con Paquetería Express. Pendiente de elección según zona de la reunión.</p>
+      <article class="next-card" style="margin-top:10px;padding:16px;border-radius:18px;border:1px solid oklch(78% .12 72/.12);background:linear-gradient(135deg,oklch(78% .12 72/.06),oklch(78% .12 72/.015));">
+        <small style="display:block;color:var(--gold);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;">↻ Próximo</small>
+        <strong style="display:block;font-size:.95rem;margin-bottom:4px;letter-spacing:-.02em;">Hotel en CDMX por definir</strong>
+        <p style="margin:0;color:var(--muted);line-height:1.6;font-size:.85rem;">Para los días 19–20 se necesitará hospedaje en CDMX para las reuniones con Paquetería Express.</p>
       </article>
     </div>
   </div>
@@ -782,54 +1072,57 @@ a{color:inherit;text-decoration:none}
   </div>
 </section>
 
-<!-- ===== REFERENCIAS ===== -->
-<section class="sec">
-  <div class="sec-head">
-    <div>
-      <h2 class="sec-title">Resumen por fases</h2>
-      <p class="sec-sub">Estructura general del despliegue con tiempos y objetivos.</p>
-    </div>
-    <span class="tag">vista rápida</span>
-  </div>
-  <div class="ref-grid">
-    <article class="ref-card">
-      <small>Fase I</small>
-      <strong>Preparación local y proveedores</strong>
-      <p>Días 1–3 · Conseguir proveedores, comprar materiales y validar el sitio.</p>
-    </article>
-    <article class="ref-card">
-      <small>Fase II</small>
-      <strong>Fabricación del punto de acopio</strong>
-      <p>Días 4–7 · Construir la estructura, preparar piezas y validar medidas.</p>
-    </article>
-    <article class="ref-card">
-      <small>Fase III</small>
-      <strong>Ensamble e instalación</strong>
-      <p>Días 8–10 · Armar, ubicar, fijar y energizar el punto de acopio.</p>
-    </article>
-    <article class="ref-card">
-      <small>Fase IV</small>
-      <strong>Pruebas técnicas</strong>
-      <p>Días 11–16 · Validar mecánica, software, precision landing, vuelos autónomos y plataforma.</p>
-    </article>
-    <article class="ref-card">
-      <small>Fase V</small>
-      <strong>Capacitación y entrega</strong>
-      <p>Días 17–18 · Entrenar a Farmacias Similares y dejar documentación básica.</p>
-    </article>
-    <article class="ref-card">
-      <small>Fase VI</small>
-      <strong>Expansión Paquetería Express</strong>
-      <p>Días 19–20 · Reuniones en CDMX para explorar nuevo negocio.</p>
-    </article>
-  </div>
-</section>
-
 <footer class="foot">
-  RIGEL · Despliegue México · Cronograma operativo — actualizado con plan 20 días
+  RIGEL · Despliegue México · v8 con presupuesto, vuelos, alimentación y comparativa
 </footer>
 
 </div>
+
+<script>
+// ===== Flights: fill dates + update link =====
+const dep = document.getElementById('departure');
+const ret = document.getElementById('return');
+const origin = document.getElementById('origin');
+const dest = document.getElementById('dest');
+const gfLink = document.getElementById('gf-link');
+
+function buildUrl(){
+  let url = 'https://www.google.com/travel/flights?q=Flights+to+' + dest.value + '+from+' + origin.value;
+  if(dep.value) url += '+on+' + dep.value;
+  if(ret.value) url += '+return+on+' + ret.value;
+  gfLink.href = url;
+}
+
+function setDates(depOffset, retOffset){
+  const today = new Date();
+  document.querySelectorAll('.flight-presets button').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+
+  if(!depOffset && !retOffset){
+    dep.value = '';
+    ret.value = '';
+  } else {
+    const d = new Date(today);
+    d.setDate(d.getDate() + depOffset);
+    dep.value = d.toISOString().split('T')[0];
+    const r = new Date(today);
+    r.setDate(r.getDate() + retOffset);
+    ret.value = r.toISOString().split('T')[0];
+  }
+  buildUrl();
+}
+
+dep.addEventListener('input', buildUrl);
+ret.addEventListener('input', buildUrl);
+origin.addEventListener('change', buildUrl);
+dest.addEventListener('change', buildUrl);
+
+// Set default dates: next month approximation
+const today = new Date();
+const nextMonth = new Date(today.getFullYear(), today.getMonth() + 1, 1);
+dep.value = '';
+ret.value = '';
+</script>
 
 </body>
 </html>
