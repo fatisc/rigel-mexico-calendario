@@ -221,6 +221,8 @@ a{color:inherit;text-decoration:none}
 .embed-hero-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform .6s var(--ease-out-quart);}
 .embed-hero-card:hover .embed-hero-img img{transform:scale(1.03)}
 .embed-hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,oklch(10% .01 55/.85),transparent 50%);}
+.embed-hero-link{position:absolute;top:16px;right:16px;padding:8px 14px;border-radius:999px;background:oklch(10% .01 55/.78);border:1px solid oklch(100% 0 0/.1);color:var(--fg);font-size:.78rem;font-weight:500;backdrop-filter:blur(12px);z-index:2;transition:background .25s;}
+.embed-hero-link:hover{background:oklch(72% .17 28/.25);border-color:var(--accent);}
 .embed-body{padding:22px;}
 .embed-body small{display:block;color:var(--gold);font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px;}
 .embed-body h3{margin:0 0 7px;font-size:1.3rem;letter-spacing:-.02em;font-weight:600;}
@@ -237,6 +239,9 @@ a{color:inherit;text-decoration:none}
 .thumb img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform .5s var(--ease-out-quart);}
 .thumb:hover img{transform:scale(1.05)}
 .thumb span{position:absolute;left:10px;bottom:8px;padding:5px 9px;border-radius:999px;background:oklch(8% .01 55/.72);backdrop-filter:blur(10px);border:1px solid oklch(100% 0 0/.08);font-size:.75rem;color:var(--fg);}
+.mosaic-card a{position:relative;min-height:130px;overflow:hidden;display:block;}
+.mosaic-card a img{transition:transform .55s var(--ease-out-quart),filter .55s;}
+.mosaic-card a:hover img{transform:scale(1.08);filter:brightness(1.1);}
 .bgt{display:grid;grid-template-columns:1.65fr .85fr;gap:18px;}
 .bgt-main{border-radius:var(--radius-lg);border:1px solid var(--line);padding:22px;background:oklch(100% 0 0/.025);}
 .bgt-side{border-radius:var(--radius-lg);border:1px solid var(--line);padding:22px;background:linear-gradient(135deg,oklch(78% .12 72/.06),oklch(78% .12 72/.015));}
@@ -284,6 +289,11 @@ a{color:inherit;text-decoration:none}
   .fp{flex-direction:column}
 }
 @media(max-width:480px){.ribbon{grid-template-columns:1fr}}
+@media(max-width:600px){
+  .mosaic-card a{min-height:100px!important;}
+  .mosaic-card a img{min-height:100px;}
+  .flight-presets button{font-size:.75rem;padding:6px 10px;}
+}
 </style>
 </head>
 <body>
@@ -319,7 +329,7 @@ a{color:inherit;text-decoration:none}
     <div class="hero-badge">
       <small>Base operativa</small>
       <strong>Apartamento 2 hab · Tulum</strong>
-      <p>Presupuesto ajustado a $15M COP. 3 personas, 20 días. Se cocina en casa, mercado municipal, vuelos low-cost, ADO bus para transfers, y punto de acopio con proveedores locales.</p>
+      <p>Presupuesto ajustado a $12.27M COP. 3 personas, 20 días. Se cocina en casa, mercado municipal, vuelos low-cost, ADO bus para transfers, y punto de acopio con proveedores locales.</p>
     </div>
   </div>
 </header>
@@ -329,7 +339,7 @@ a{color:inherit;text-decoration:none}
   <div class="stat"><small>Duración</small><strong>20 días</strong></div>
   <div class="stat"><small>Cliente</small><strong>Farmacias Similares</strong></div>
   <div class="stat"><small>Base</small><strong>Tulum, QR</strong></div>
-  <div class="stat"><small>Presupuesto</small><strong>$15M COP</strong></div>
+  <div class="stat"><small>Presupuesto</small><strong>$12.27M COP</strong></div>
   <div class="stat"><small>Equipo</small><strong>3 personas</strong></div>
 </div>
 
@@ -407,9 +417,9 @@ a{color:inherit;text-decoration:none}
   <div class="sec-head">
     <div>
       <h2 class="sec-title">Presupuesto</h2>
-      <p class="sec-sub">$15,000,000 COP totales para el despliegue completo de 20 días. Investigación de precios reales en Tulum (julio 2026): supermercado Chedraqui/Aki, Airbnb, ADO bus, proveedores locales. La proteína (pollo/res) es 30-38% más barata en México que en Colombia.</p>
+      <p class="sec-sub">$12,274,272 COP totales para el despliegue completo de 20 días. Investigación de precios reales en Tulum (junio 2026): Apartamento Sunrise confirmado $2.6M, supermercado Chedraqui/Aki, ADO bus, proveedores locales. La proteína (pollo/res) es 30-38% más barata en México que en Colombia.</p>
     </div>
-    <span class="tag">$15M COP total</span>
+    <span class="tag">$12.27M COP total</span>
   </div>
 
   <div class="bgt">
@@ -417,26 +427,26 @@ a{color:inherit;text-decoration:none}
       <table class="mtbl">
         <tr><td>✈ Vuelos — 3 personas MDE→CUN ida y vuelta (desde)</td><td>$4,114,272 COP</td></tr>
         <tr><td>🚌 ADO bus CUN ↔ Tulum (3 personas, ida y vuelta)</td><td>$360,000 COP</td></tr>
-        <tr><td>🏠 Airbnb — 20 noches (búsqueda activa: La Veleta/Aldea Zama)</td><td>$5,000,000 COP</td></tr>
+        <tr><td>🏠 Airbnb — Apartamento Sunrise · 20 noches (confirmado)</td><td>$2,600,000 COP</td></tr>
         <tr><td>🛒 Mercado municipal — Alimentación 20 días (cocinando en casa)</td><td>$1,500,000 COP</td></tr>
         <tr><td>🍽 Comer fuera — 2-3 veces/semana en taquerías locales</td><td>$500,000 COP</td></tr>
         <tr><td>🚐 Transporte local — colectivos, taxi ocasional, gasolina</td><td>$300,000 COP</td></tr>
         <tr><td>🔧 Materiales — fabricación punto de acopio (proveedores Tulum)</td><td>$2,400,000 COP</td></tr>
         <tr><td>📱 Extras — SIM local, datos, emergencias, varios</td><td>$500,000 COP</td></tr>
-        <tr class="tot"><td>💰 Total despliegue completo</td><td>$14,674,272 COP</td></tr>
+        <tr class="tot"><td>💰 Total despliegue completo</td><td>$12,274,272 COP</td></tr>
       </table>
     </div>
     <div class="bgt-side">
       <h4>🔍 Detalle de referencias</h4>
       <p><strong>Vuelos:</strong> Google Flights cheapest: $1,371,424/persona (escala BOG). Directo Avianca: $1.85M. Wingo no vuela directo MDE→CUN. Persona 1 viaja día 1, personas 2 y 3 día 8. Todas regresan juntas día 20.</p>
-      <p><strong>Airbnb:</strong> La Veleta/Aldea Zama: $600-$1,200 USD/mes en renta directa. Target $50-70 USD/noche en Airbnb con descuento mensual.</p>
+      <p><strong>Airbnb:</strong> Apartamento Sunrise ★4.93 · Guest Favorite · 2 habitaciones · 2 baños · 200 Mbps · Piscinas · $2.6M / 20 noches ≈ $130k COP/noche (~$30 USD/noche). Dueño: Chris (Superhost, 7 años).</p>
       <p><strong>Mercado:</strong> Chedraqui/Aki: MX $150-250/semana/persona. Mercado Municipal ahorra 20-30% más. Tipo de cambio real: 1 MXN ≈ $230 COP.</p>
       <div class="chips" style="margin-top:14px;">
-        <span class="chip">✈ Vuelos: 28%</span>
-        <span class="chip">🏠 Airbnb: 34%</span>
-        <span class="chip">🔧 Materiales: 16%</span>
-        <span class="chip">🍽 Alimentación: 14%</span>
-        <span class="chip">🚗 Otros: 8%</span>
+        <span class="chip">✈ Vuelos: 33%</span>
+        <span class="chip">🏠 Airbnb: 21%</span>
+        <span class="chip">🔧 Materiales: 20%</span>
+        <span class="chip">🍽 Alimentación: 16%</span>
+        <span class="chip">🚗 Otros: 10%</span>
       </div>
       <p style="margin-top:12px;font-size:.8rem;color:var(--muted);">Tipo de cambio: 1 USD ≈ 4,200 COP · 1 MXN ≈ 230 COP (junio 2026). Fuentes: Google Flights, KAYAK, world-prices.com, Chakah Herrería Tulum.</p>
     </div>
@@ -450,8 +460,8 @@ a{color:inherit;text-decoration:none}
     </article>
     <article class="ref-card">
       <small>💡 Ahorro vs estimación original</small>
-      <strong>$8.7M COP menos · 37% de reducción</strong>
-      <p>Claves del ahorro: vuelos low-cost en vez de aerolíneas full-service (-$1.1M), Airbnb económico en La Veleta en vez del Sunrise (-$3.4M), ADO bus en vez de transfer privado (-$1.3M), mercado municipal vs supermercado (-$1M), materiales locales ajustados (-$1M).</p>
+      <strong>$10.4M COP menos · 46% de reducción</strong>
+      <p>Claves del ahorro: vuelos low-cost en vez de aerolíneas full-service (-$1.1M), Airbnb real Apartamento Sunrise vs estimación genérica (-$2.4M), ADO bus en vez de transfer privado (-$1.3M), mercado municipal vs supermercado (-$1M), materiales locales ajustados (-$1M).</p>
     </article>
   </div>
 </section>
@@ -792,59 +802,71 @@ a{color:inherit;text-decoration:none}
   <div class="sec-head">
     <div>
       <h2 class="sec-title">Hospedaje</h2>
-      <p class="sec-sub">Presupuesto para 20 noches de Airbnb en Tulum. Se busca opción económica en La Veleta o Aldea Zama, las zonas más accesibles. Precio objetivo: ~$62 USD/noche.</p>
+      <p class="sec-sub">Apartamento Sunrise — 2 habitaciones · 2 baños · 5 piscinas · 200 Mbps · ★4.93 · Guest Favorite. A solo 1.4 km del punto de acopio (15 min caminando). Anfitrión: Chris (Superhost, 7 años).</p>
     </div>
-    <span class="tag">$5.2M COP · 20 noches</span>
+    <span class="tag">$2.6M COP · 20 noches</span>
   </div>
 
   <div class="embed-grid">
     <article class="embed-hero-card">
       <div class="embed-hero-img">
         <img src="https://a0.muscache.com/im/pictures/miso/Hosting-699987486206699701/original/e8347907-4fb2-46f7-bcf1-26191bb7ed84.jpeg?im_w=1200"
-             alt="Piscina rooftop del alojamiento en Tulum"
+             alt="Salón y cocina equipada del Apartamento Sunrise"
              loading="lazy">
+        <a href="https://es-l.airbnb.com/rooms/699987486206699701" target="_blank" rel="noreferrer" class="embed-hero-link">🔗 Abrir en Airbnb</a>
       </div>
       <div class="embed-body">
-        <small>Airbnb · Referencia inicial</small>
-        <h3>Apartamento Sunrise de 2 dormitorios</h3>
+        <small>✓ Confirmado</small>
+        <h3>Apartamento Sunrise · 20 noches</h3>
         <p>
-          Condo en Tulum, 2 habitaciones, 2 baños, cocina equipada, 5 piscinas. Calificación 4.93 (175 reseñas). 
-          Costo original: ~$110 USD/noche ($8.6M COP por 20 noches). Para el presupuesto de $15M se recomienda 
-          buscar una opción más económica en La Veleta o Aldea Zama, donde hay condos de 2 hab desde $50-70 USD/noche 
-          en Airbnb o $1,200 USD/mes en renta directa.
+          Condo de lujo en Tulum, planta superior. 2 habitaciones con cama king size, 
+          2 baños completos, cocina totalmente equipada, sala-comedor con Smart TV 50",
+          aire acondicionado, ascensor, estacionamiento privado. 5 piscinas compartidas 
+          incluyendo rooftop con vistas a la selva. WiFi fibra óptica 200 Mbps.
         </p>
         <div class="chips">
-          <span class="chip">🔍 Búsqueda activa</span>
-          <span class="chip">La Veleta</span>
-          <span class="chip">Aldea Zama</span>
-          <span class="chip">$50-70 USD/noche objetivo</span>
-          <span class="chip">Cocina equipada</span>
+          <span class="chip" style="background:oklch(68% .14 148/.12);border-color:oklch(68% .14 148/.25);color:var(--green);">★ 4.93 · 175 reseñas</span>
+          <span class="chip">2 habitaciones</span>
+          <span class="chip">2 baños</span>
+          <span class="chip">4 huéspedes</span>
+          <span class="chip">🌊 5 piscinas</span>
+          <span class="chip">🏋 Gimnasio</span>
+          <span class="chip">📶 200 Mbps</span>
+          <span class="chip">🥇 Guest Favorite</span>
         </div>
         <div class="embed-actions">
-          <a class="btn btn-outline" href="https://www.airbnb.mx/s/Tulum--Quintana-Roo--M%C3%A9xico/homes?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&flexible_trip_lengths%5B%5D=one_week&price_filter_input_type=0&price_min=30&price_max=80&monthly_start_date=2026-07-01&date_picker_type=calendar&checkin=2026-06-14&checkout=2026-07-04&source=structured_search_input_header&search_type=filter_change" target="_blank" rel="noreferrer">Buscar Airbnb baratos →</a>
-          <a class="btn btn-outline" href="https://maps.app.goo.gl/6t5EBhK89NJErt2t9" target="_blank" rel="noreferrer">Mapa Tulum</a>
+          <a class="btn btn-primary" href="https://es-l.airbnb.com/rooms/699987486206699701" target="_blank" rel="noreferrer">🔗 Ver en Airbnb</a>
+          <button onclick="document.getElementById('airbnb-addr').value='Apartamento Sunrise, 20.18585, -87.46292';goRoute()" class="btn btn-gold">🗺 Ruta → Instalación</button>
+          <a class="btn btn-outline" href="https://www.airbnb.mx/rooms/699987486206699701?check_in=2026-06-14&check_out=2026-07-04&adults=3" target="_blank" rel="noreferrer">📅 Ver precios exactos</a>
         </div>
       </div>
     </article>
     <div>
-      <article class="mosaic-card">
-        <div class="mosaic-head">
-          <strong>La Veleta · Zona recomendada</strong>
-          <span>$50-80/noche</span>
-        </div>
-        <div style="text-align:center;padding:30px 10px;color:var(--muted);font-size:.88rem;border:1px dashed var(--line);border-radius:16px;">
-          🌴 Zona residencial a 10 min del centro. Muchos condos nuevos con alberca, cocina, wifi. Ideal para estancias largas de equipo técnico.
+      <article class="mosaic-card" style="padding:0;overflow:hidden;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;">
+          <a href="https://a0.muscache.com/im/pictures/miso/Hosting-699987486206699701/original/cd03349f-dfa5-46bd-9d36-2be37f5d08f9.jpeg?im_w=720" target="_blank" style="position:relative;min-height:130px;overflow:hidden;">
+            <img src="https://a0.muscache.com/im/pictures/miso/Hosting-699987486206699701/original/cd03349f-dfa5-46bd-9d36-2be37f5d08f9.jpeg?im_w=720" alt="Piscina rooftop con vistas" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform .5s;display:block;" loading="lazy">
+          </a>
+          <a href="https://a0.muscache.com/im/pictures/miso/Hosting-699987486206699701/original/5c1349aa-7afd-4283-83d0-566a02be2a8d.jpeg?im_w=720" target="_blank" style="position:relative;min-height:130px;overflow:hidden;">
+            <img src="https://a0.muscache.com/im/pictures/miso/Hosting-699987486206699701/original/5c1349aa-7afd-4283-83d0-566a02be2a8d.jpeg?im_w=720" alt="Habitación principal king size" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform .5s;display:block;" loading="lazy">
+          </a>
+          <a href="https://a0.muscache.com/im/pictures/miso/Hosting-699987486206699701/original/051d15a3-6371-4135-93d8-4030c38dc605.jpeg?im_w=720" target="_blank" style="position:relative;min-height:130px;overflow:hidden;">
+            <img src="https://a0.muscache.com/im/pictures/miso/Hosting-699987486206699701/original/051d15a3-6371-4135-93d8-4030c38dc605.jpeg?im_w=720" alt="Segundo dormitorio" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform .5s;display:block;" loading="lazy">
+          </a>
+          <a href="https://a0.muscache.com/im/pictures/miso/Hosting-699987486206699701/original/2e0db7fd-052e-4776-8232-32d8e464e160.jpeg?im_w=720" target="_blank" style="position:relative;min-height:130px;overflow:hidden;">
+            <img src="https://a0.muscache.com/im/pictures/miso/Hosting-699987486206699701/original/2e0db7fd-052e-4776-8232-32d8e464e160.jpeg?im_w=720" alt="Baño y ducha" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform .5s;display:block;" loading="lazy">
+          </a>
         </div>
       </article>
-      <article class="ref-card" style="margin-top:10px;border-color:oklch(78% .12 72/.12);background:linear-gradient(135deg,oklch(78% .12 72/.06),oklch(78% .12 72/.015));">
+      <article class="ref-card" style="margin-top:10px;border-color:oklch(68% .14 148/.2);background:linear-gradient(135deg,oklch(68% .14 148/.06),transparent);">
+        <small>💰 Costo real</small>
+        <strong>$2,600,000 COP · $130k/noche</strong>
+        <p>Aprox $30 USD/noche para el grupo completo. Más barato que hostal compartido. Incluye 2 habitaciones privadas, cocina (ahorra en comida), piscinas, gimnasio, WiFi 200 Mbps. Relación calidad-precio excelente para 3 personas.</p>
+      </article>
+      <article class="ref-card" style="margin-top:10px;border-color:oklch(78% .12 72/.15);background:linear-gradient(135deg,oklch(78% .12 72/.06),oklch(78% .12 72/.015));">
         <small>↻ Días 19–20: CDMX</small>
         <strong>Hotel económico por definir</strong>
         <p>Para las reuniones con Paquetería Express. Hostal/hotel céntrico: ~$30-50 USD/noche para 2 habitaciones o compartidas.</p>
-      </article>
-      <article class="ref-card" style="margin-top:10px;border-color:oklch(68% .14 148/.15);background:linear-gradient(135deg,oklch(68% .14 148/.06),transparent);">
-        <small>💡 Ahorro vs Sunrise</small>
-        <strong>~$3.4M COP menos</strong>
-        <p>El Sunrise a $110/noche costaba $8.6M. Buscando en La Veleta a ~$62/noche + descuento mensual Airbnb: $5.2M. Ahorro del 40%.</p>
       </article>
     </div>
   </div>
